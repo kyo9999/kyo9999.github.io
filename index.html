@@ -1,103 +1,495 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO关键词 -->
+    <meta name="keywords" content="Jun Zhu, Bookmarkers Pro, Shortcut Manager Pro, Text Search, Sudoku Calculator, iOS应用, 苹果应用, 书签管理工具, 快捷键工具, 文本搜索工具">
+    <meta name="description" content="Jun Zhu开发的iOS应用集合，包含Bookmarkers Pro、Shortcut Manager Pro等高效工具，支持跨设备同步与专业功能。">
 
-<a href="https://apps.apple.com/us/app/bookmarkers-pro/id574292030" title="Bookmarkers Pro"/>Bookmarkers Pro</a>
-<br/>
-<a href="https://apps.apple.com/us/app/bookmarkers/id564474256" title="Bookmarkers"/>Bookmarkers</a>
+    <title>Jun Zhu - Applications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        // Tailwind 配置：自定义颜色与字体
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0071e3', // 苹果蓝
+                        secondary: '#f5f5f7', // 浅灰背景
+                        dark: '#1d1d1f', // 深色文本
+                        accent: '#34c759', // 苹果绿
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+            }
+            .app-icon {
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border-radius: 20%; /* 模拟App Store图标圆角 */
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .app-card:hover .app-icon {
+                transform: scale(1.1) rotate(5deg);
+            }
+            .nav-blur {
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            .fade-in {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .system-user-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #0071e3;
+                color: white;
+                font-weight: 600;
+            }
+        }
+    </style>
+</head>
+<body class="bg-secondary text-dark font-sans">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/80 nav-blur shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <!-- 系统默认风格用户图标 -->
+                <div class="w-10 h-10 rounded-full system-user-icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <h1 class="text-xl font-semibold">
+                    <span class="lang-en">Jun Zhu</span>
+                    <span class="lang-zh-CN hidden">Jun Zhu</span>
+                    <span class="lang-zh-TW hidden">Jun Zhu</span>
+                    <span class="lang-ja hidden">Jun Zhu</span>
+                </h1>
+            </div>
+            
+            <!-- 语言选择器 -->
+            <div class="relative">
+                <button id="languageSelector" class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:border-gray-300 transition-colors">
+                    <i class="fa fa-globe text-primary"></i>
+                    <span id="currentLang">English</span>
+                    <i class="fa fa-chevron-down text-xs"></i>
+                </button>
+                <div id="languageDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg overflow-hidden hidden z-50">
+                    <button data-lang="en" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors flex items-center gap-2">
+                        <span>English</span>
+                    </button>
+                    <button data-lang="zh-CN" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors flex items-center gap-2">
+                        <span>简体中文</span>
+                    </button>
+                    <button data-lang="zh-TW" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors flex items-center gap-2">
+                        <span>繁體中文</span>
+                    </button>
+                    <button data-lang="ja" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors flex items-center gap-2">
+                        <span>日本語</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<h1>
-Bookmarkers is a software, which can manage your bookmark of website url. It has those features, such as:<br/><br/>1. Manage website url, then you can find, edit, insert, update, delete data more efficiently.<br/>2. iCloud, which can sync your bookmark to all your IOS devices.<br/>
-3. Data Sharing between PC and IOS. Import/Export PC IE/Safari/Opera/Firefox/Chrome Bookmarks. IOS can restore data from PC.
-<br/>4. Collect website url can be opened by Safari, Opera, Chrome, InApp browser etc.
-<br/>
-5. InApp browser is optimized for full screen reading and operating by gestures. Powerful Search Engine:
-<br/>
-1) Search Text in Web Content
-<br/>
-2) Search(Japan), Yahoo Search, Bing Search, Baidu Search
-<br/>
-3) Convenient History
-<br/>
-6. Gestures Passcode Lock to protect you url.
-<br/>
-7. UI auto match font size, good for old people to use.
-<br/>
-<br/>
-Caution:
-iCloud of Bookmarkers is different with iCloud of Safari, so the bookmark of Bookmarkers is not synced between Bookmarkers and Safari. iCloud of Bookmarkers just backup the bookmark of Bookmarkers, and synced to all iOS device. If you want to import/export data from Safari/Chrome/Opera/Firefox/Bookmarkers, iCloud don't do this for you, you must do it by yourself.
-<br/>
-<br/>
-*****Hot Featured in Japan and China*****Good Manage to surf the Internet app *****4.5-5 stars reviewed app*****
-This is a Free Version, you can buy Pro version, which is more best than Free version, Pro Version is more detail, more quick, more good framework, more longer time supported.
-<br/>
-<br/>
-Customer Reviews
-Great for Chrome!!! *****
-by bdavis22 - Version 1.5 - Dec 30, 2012
-<br/>
+    <!-- 所有应用 -->
+    <section id="all-applications" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-16">
+                <span class="lang-en">All Applications</span>
+                <span class="lang-zh-CN hidden">所有应用</span>
+                <span class="lang-zh-TW hidden">所有應用</span>
+                <span class="lang-ja hidden">すべてのアプリケーション</span>
+            </h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 应用1: Bookmarkers Pro -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                    <div class="h-52 bg-primary/10 flex items-center justify-center">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/45/5e/89455ef7-5e9b-4887-d23e-61b839c8e48a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
+                             alt="Bookmarkers Pro" 
+                             class="w-32 h-32 app-icon">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Bookmarkers Pro</h4>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-en">Professional bookmark management with cross-device sync and advanced organization.</span>
+                            <span class="lang-zh-CN hidden">专业书签管理，支持跨设备同步和高级组织功能。</span>
+                            <span class="lang-zh-TW hidden">專業書籤管理，支援跨裝置同步和高級組織功能。</span>
+                            <span class="lang-ja hidden">クロスデバイス同期と高度な組織化を備えたプロフェッショナルなブックマーク管理。</span>
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(4.8)</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/bookmarkers-pro/id574292030" 
+                               target="_blank" 
+                               class="text-primary font-medium hover:underline flex items-center gap-1">
+                                <span class="lang-en">View</span>
+                                <span class="lang-zh-CN hidden">查看</span>
+                                <span class="lang-zh-TW hidden">查看</span>
+                                <span class="lang-ja hidden">表示</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-Needs multiple tag groups per bookmark. I'd also love bookmarklet support for Chrome using this app. This app has let me clean up all the safari bookmark shortcuts so that I can do more with apps on my iphone. I would also love to be able to call this app from speed u.
-<br/>
+                <!-- 应用2: Bookmarkers -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                    <div class="h-52 bg-primary/10 flex items-center justify-center">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/92/c9/9d92c9c6-fff2-0a45-0806-327ab703bbe7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
+                             alt="Bookmarkers" 
+                             class="w-32 h-32 app-icon">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Bookmarkers</h4>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-en">Simple and effective bookmark management for everyday use.</span>
+                            <span class="lang-zh-CN hidden">简单有效的书签管理工具，适合日常使用。</span>
+                            <span class="lang-zh-TW hidden">簡單有效的書籤管理工具，適合日常使用。</span>
+                            <span class="lang-ja hidden">日常使用に適したシンプルで効果的なブックマーク管理ツール。</span>
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(4.0)</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/bookmarkers/id564474256" 
+                               target="_blank" 
+                               class="text-primary font-medium hover:underline flex items-center gap-1">
+                                <span class="lang-en">View</span>
+                                <span class="lang-zh-CN hidden">查看</span>
+                                <span class="lang-zh-TW hidden">查看</span>
+                                <span class="lang-ja hidden">表示</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-重宝してます ****
-by 甘皮 - Version 1.5 - Jan 2, 2013
-<br/>
+                <!-- 应用3: Shortcut Manager Pro -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                    <div class="h-52 bg-accent/10 flex items-center justify-center">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/7f/dd/7f/7fdd7f5c-30d5-084d-982b-6bbe4d41b243/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
+                             alt="Shortcut Manager Pro" 
+                             class="w-32 h-32 app-icon">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Shortcut Manager Pro</h4>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-en">Master your keyboard with custom shortcuts for enhanced productivity.</span>
+                            <span class="lang-zh-CN hidden">通过自定义快捷方式，实现iOS快速打开各种应用</span>
+                            <span class="lang-zh-TW hidden">通過自定義快捷方式，實現iOS快速打開各種應用</span>
+                            <span class="lang-ja hidden">カスタムショートカットでiOS上で各種アプリをすばやく開くことができます</span>
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(4.2)</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/shortcut-manager-pro/id591392350" 
+                               target="_blank" 
+                               class="text-primary font-medium hover:underline flex items-center gap-1">
+                                <span class="lang-en">View</span>
+                                <span class="lang-zh-CN hidden">查看</span>
+                                <span class="lang-zh-TW hidden">查看</span>
+                                <span class="lang-ja hidden">表示</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-整理も簡単でとても便利です。他の方も書かれていますが、Safariからのインポート機能があれば最高！
-<br/>
+                <!-- 应用4: Shortcut Manager -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                    <div class="h-52 bg-accent/10 flex items-center justify-center">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/12/23/65/12236511-bd93-9077-0380-88c60dd3f2c2/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
+                             alt="Shortcut Manager" 
+                             class="w-32 h-32 app-icon">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Shortcut Manager</h4>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-en">Basic shortcut management tools to simplify your daily iOS usage.</span>
+                            <span class="lang-zh-CN hidden">基础快捷方式管理工具，简化您的日常iOS使用。</span>
+                            <span class="lang-zh-TW hidden">基礎快捷方式管理工具，簡化您的日常iOS使用。</span>
+                            <span class="lang-ja hidden">基本的なショートカット管理ツールで、日常のiOS使用を簡素化します。</span>
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(3.5)</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/shortcut-manager/id595156397" 
+                               target="_blank" 
+                               class="text-primary font-medium hover:underline flex items-center gap-1">
+                                <span class="lang-en">View</span>
+                                <span class="lang-zh-CN hidden">查看</span>
+                                <span class="lang-zh-TW hidden">查看</span>
+                                <span class="lang-ja hidden">表示</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-ふつー ***
-by さわ先生 - Version 1.5 - Dec 26, 2012
-<br/>
+                <!-- 应用5: Text Search - Notes Search -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                    <div class="h-52 bg-purple-500/10 flex items-center justify-center">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/83/b9/31/83b931d5-18ae-60df-dd15-0aa8fc08b131/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/246x0w.webp" 
+                             alt="Text Search - Notes Search" 
+                             class="w-32 h-32 app-icon">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Text Search - Notes Search</h4>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-en">Powerful text searching tool for notes and documents with advanced filters.</span>
+                            <span class="lang-zh-CN hidden">iOS备忘录或粘贴板搜索和批量替换工具</span>
+                            <span class="lang-zh-TW hidden">iOS備忘錄或粘貼板搜索和批量替換工具</span>
+                            <span class="lang-ja hidden">iOSメモまたはクリップボード検索と一括置換ツール</span>
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(4.9)</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" 
+                               target="_blank" 
+                               class="text-primary font-medium hover:underline flex items-center gap-1">
+                                <span class="lang-en">View</span>
+                                <span class="lang-zh-CN hidden">查看</span>
+                                <span class="lang-zh-TW hidden">查看</span>
+                                <span class="lang-ja hidden">表示</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-ブックマークとしての機能は ふつう。 ちょっとわかりにくい。 フォルダをもっとわかりやすく わけられないと、多い人は たいへん。
-<br/>
+                <!-- 应用6: Sudoku Calculator -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                    <div class="h-52 bg-orange-500/10 flex items-center justify-center">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                             alt="Sudoku Calculator" 
+                             class="w-32 h-32 app-icon">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Sudoku Calculator</h4>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-en">Solve any Sudoku puzzle with advanced solving algorithms and hints.</span>
+                            <span class="lang-zh-CN hidden">使用高级求解算法和提示解决任何数独难题。</span>
+                            <span class="lang-zh-TW hidden">使用高級求解算法和提示解決任何數獨難題。</span>
+                            <span class="lang-ja hidden">高度な解法アルゴリズムとヒントを使って、どんな数独パズルも解くことができます。</span>
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(4.5)</span>
+                            </div>
+                            <a href="https://apps.apple.com/us/app/sudoku-calculator/id1192722740" 
+                               target="_blank" 
+                               class="text-primary font-medium hover:underline flex items-center gap-1">
+                                <span class="lang-en">View</span>
+                                <span class="lang-zh-CN hidden">查看</span>
+                                <span class="lang-zh-TW hidden">查看</span>
+                                <span class="lang-ja hidden">表示</span>
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-良い良い ****
-by みゆゆー - Version 1.5 - Dec 22, 2012
-<br/>
+    <!-- 联系/关注部分 -->
+    <section class="py-16 bg-secondary">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold mb-10">
+                <span class="lang-en">Stay Connected</span>
+                <span class="lang-zh-CN hidden">保持联系</span>
+                <span class="lang-zh-TW hidden">保持聯繫</span>
+                <span class="lang-ja hidden">つながりを保つ</span>
+            </h3>
+            
+            <div class="flex flex-col items-center gap-6 max-w-2xl mx-auto">
+                <!-- 邮件联系地址 -->
+                <a href="mailto:283784210@qq.com" 
+                   class="flex items-center gap-3 bg-white border border-gray-200 px-6 py-4 rounded-full shadow-sm hover:border-gray-300 transition-colors w-full md:w-auto justify-center">
+                    <i class="fa fa-envelope text-2xl text-primary"></i>
+                    <span class="text-lg">283784210@qq.com</span>
+                </a>
+                
+                <a href="https://apps.apple.com/us/developer/jun-zhu/id564474259?see-all=i-phonei-pad-apps" 
+                   target="_blank" 
+                   class="flex items-center gap-3 bg-dark text-white px-6 py-4 rounded-full shadow-sm hover:shadow-md transition-shadow w-full md:w-auto justify-center">
+                    <i class="fa fa-apple text-2xl"></i>
+                    <span class="text-lg lang-en">App Store Profile</span>
+                    <span class="text-lg lang-zh-CN hidden">App Store资料</span>
+                    <span class="text-lg lang-zh-TW hidden">App Store資料</span>
+                    <span class="text-lg lang-ja hidden">App Storeプロフィール</span>
+                </a>
+                
+                <p class="text-gray-600 mt-8">
+                    <span class="lang-en">Follow for updates on new apps and features.</span>
+                    <span class="lang-zh-CN hidden">关注我们，获取新应用和功能的更新。</span>
+                    <span class="lang-zh-TW hidden">關注我們，獲取新應用和功能的更新。</span>
+                    <span class="lang-ja hidden">新しいアプリと機能の更新情報についてはフォローしてください。</span>
+                </p>
+            </div>
+        </div>
+    </section>
 
-他の方も書かれているように、ブラウザからのインポート機能がついたらもっと嬉しいです。
-<br/>
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <!-- 版权信息更新为2012-2025 -->
+            <p class="mb-4">
+                <span class="lang-en">© 2012-2025 Jun Zhu. All rights reserved.</span>
+                <span class="lang-zh-CN hidden">© 2012-2025 Jun Zhu. 保留所有权利。</span>
+                <span class="lang-zh-TW hidden">© 2012-2025 Jun Zhu. 保留所有權利。</span>
+                <span class="lang-ja hidden">© 2012-2025 Jun Zhu. 全著作権所有。</span>
+            </p>
+            <div class="flex justify-center gap-6">
+                <!-- 隐私页面链接 -->
+                <a href="https://www.jianshu.com/p/0d898b923c92" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa fa-shield"></i>
+                    <span class="lang-en ml-1">Privacy</span>
+                    <span class="lang-zh-CN hidden ml-1">隐私</span>
+                    <span class="lang-zh-TW hidden ml-1">隱私</span>
+                    <span class="lang-ja hidden ml-1">プライバシー</span>
+                </a>
+                <a href="https://kyo9999.github.io" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa fa-info-circle"></i>
+                    <span class="lang-en ml-1">About</span>
+                    <span class="lang-zh-CN hidden ml-1">关于</span>
+                    <span class="lang-zh-TW hidden ml-1">關於</span>
+                    <span class="lang-ja hidden ml-1">について</span>
+                </a>
+                <a href="mailto:283784210@qq.com" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa fa-envelope"></i>
+                    <span class="lang-en ml-1">Contact</span>
+                    <span class="lang-zh-CN hidden ml-1">联系</span>
+                    <span class="lang-zh-TW hidden ml-1">聯繫</span>
+                    <span class="lang-ja hidden ml-1">お問い合わせ</span>
+                </a>
+            </div>
+        </div>
+    </footer>
 
-使いやすい ****
-by ハイネマン - Version 1.4 - Dec 14, 2012
-<br/>
+    <script>
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSelector = document.getElementById('languageSelector');
+            const languageDropdown = document.getElementById('languageDropdown');
+            const languageOptions = document.querySelectorAll('.language-option');
+            const currentLangElement = document.getElementById('currentLang');
+            
+            // 切换语言选择器显示状态
+            languageSelector.addEventListener('click', function() {
+                languageDropdown.classList.toggle('hidden');
+            });
+            
+            // 点击其他区域关闭语言选择器
+            document.addEventListener('click', function(event) {
+                if (!languageSelector.contains(event.target) && !languageDropdown.contains(event.target)) {
+                    languageDropdown.classList.add('hidden');
+                }
+            });
+            
+            // 语言切换逻辑
+            languageOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switch(lang) {
+                        case 'en':
+                            currentLangElement.textContent = 'English';
+                            break;
+                        case 'zh-CN':
+                            currentLangElement.textContent = '简体中文';
+                            break;
+                        case 'zh-TW':
+                            currentLangElement.textContent = '繁體中文';
+                            break;
+                        case 'ja':
+                            currentLangElement.textContent = '日本語';
+                            break;
+                    }
+                    
+                    // 隐藏所有语言元素
+                    document.querySelectorAll('[class*="lang-"]').forEach(el => {
+                        el.classList.add('hidden');
+                    });
+                    
+                    // 显示选中语言元素
+                    document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                        el.classList.remove('hidden');
+                        el.classList.add('fade-in');
+                    });
+                    
+                    languageDropdown.classList.add('hidden');
+                });
+            });
 
-すぐ色々なとこにつなげるので使いやすい。
-<br/>
-
-パスワード ****
-by Yue* - Version 1.4 - Nov 30, 2012
-<br/>
-
-パスワードを設定できるので、大変助かっています。 Safariからのブックマークを簡単にインポートできたら、もっといいなぁと思います！
-<br/>
-
-OK ****
-by Luckysevn - Version 1.2 - Nov 10, 2012
-<br/>
-
-いいと思います(^-^) By iphone5
-<br/>
-
-良い *****
-by けいこ@ - Version 1.2 - Nov 9, 2012
-<br/>
-
-とても、シンプルで使いやすいです
-<br/>
-
-文句は一つもない *****
-by うちのタロ - Version 1.2 - Nov 8, 2012
-<br/>
-
-今までホームにブラウザを貼り付けてただけだった私にはちょうどいい。 urlを保存してすぐに行けし、余計な機能もないし追加に削除にグループ分けも出来て、ごくシンプルでこれだけ出来れば充分！
-<br/><br/>
-
-If you need more info or help, Please see help in software.
-If you have some question or advice to improve our application, email to 283784210@qq.com, thank you!
-<br/>
-<br/>
-Copyright © 2012 ZhuYangJun(283784210@qq.com).
-All Rights Reserved.
-</h1>
+            // 导航栏滚动效果
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    
