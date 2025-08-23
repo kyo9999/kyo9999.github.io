@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO关键词 -->
+    <meta name="keywords" content="Bookmarkers Pro, Bookmarkers, Jun Zhu, ブックマーク,Lesezeichen,Signets,서표,브라우저,marcador,Preferiti,Chrome,Opera,browser,google,yahoo,bing,baidu,search,Bookmark,浏览器,谷歌,百度,雅虎,网址,书签,瀏覽器,網址,書籤">
+    <meta name="description" content="Bookmarkers, 网页书签, iOS, macOS, Support, 支持, iCloud。">
     <title>Bookmarkers - Efficient Web Bookmark Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
