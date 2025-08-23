@@ -1,55 +1,527 @@
-1.  **Bookmarkers: Efficient Web Bookmark Manager**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarkers - Efficient Web Bookmark Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .app-icon {
+                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                border-radius: 20%;
+                transition: transform 0.3s ease;
+            }
+            .app-icon:hover {
+                transform: translateY(-5px) scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Language Switcher -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-bookmark text-primary text-2xl"></i>
+                <span class="text-xl font-bold text-primary">Bookmarkers</span>
+            </div>
+            <div class="flex space-x-3">
+                <button onclick="changeLanguage('en')" class="lang-btn px-3 py-1 rounded hover:bg-gray-100 transition-all-300">English</button>
+                <button onclick="changeLanguage('zh-CN')" class="lang-btn px-3 py-1 rounded hover:bg-gray-100 transition-all-300">简体中文</button>
+                <button onclick="changeLanguage('zh-TW')" class="lang-btn px-3 py-1 rounded hover:bg-gray-100 transition-all-300">繁体中文</button>
+                <button onclick="changeLanguage('ja')" class="lang-btn px-3 py-1 rounded hover:bg-gray-100 transition-all-300">日本語</button>
+            </div>
+        </div>
+    </nav>
 
-    Recommended in Japan & China’s popular sections | 4.5 - 5 star rating. Simple, easy - to - use for browsing.
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 data-lang="title" class="text-4xl md:text-5xl font-bold mb-4 text-shadow">Bookmarkers: Efficient Web Bookmark Manager</h1>
+            <p data-lang="subtitle" class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">Recommended in Japan & China's popular sections | 4.5 - 5 star rating. Simple, easy-to-use for browsing.</p>
+            
+            <!-- App Icons -->
+            <div class="mt-8 flex justify-center gap-8">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/45/5e/89455ef7-5e9b-4887-d23e-61b839c8e48a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
+                     alt="Bookmarkers Pro" 
+                     class="w-32 h-32 app-icon">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/92/c9/9d92c9c6-fff2-0a45-0806-327ab703bbe7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
+                     alt="Bookmarkers" 
+                     class="w-32 h-32 app-icon">
+            </div>
+            
+            <!-- Download Buttons -->
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://apps.apple.com/us/app/bookmarkers-pro/id574292030" target="_blank" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all-300 shadow-lg hover:shadow-xl">
+                    <i class="fa fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">Download on the</div>
+                        <div>Bookmarkers Pro</div>
+                    </div>
+                </a>
+                <a href="https://apps.apple.com/us/app/bookmarkers/id564474256" target="_blank" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all-300 shadow-lg hover:shadow-xl">
+                    <i class="fa fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">Download on the</div>
+                        <div>Bookmarkers (Free)</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
 
-2.  **Core Features**
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 data-lang="features-title" class="text-3xl font-bold text-center mb-12">Core Features</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-tasks text-primary text-xl"></i>
+                    </div>
+                    <h3 data-lang="feature-1-title" class="text-xl font-semibold mb-2">Efficient URL Management</h3>
+                    <p data-lang="feature-1-desc" class="text-gray-600">Search, edit, add, delete smoothly—no clutter.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-cloud text-primary text-xl"></i>
+                    </div>
+                    <h3 data-lang="feature-2-title" class="text-xl font-semibold mb-2">iCloud Sync</h3>
+                    <p data-lang="feature-2-desc" class="text-gray-600">Auto-sync bookmarks/history to iPhone/iPad/Mac/Vision Pro (independent of Safari iCloud; manual import/export for other browsers).</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-globe text-primary text-xl"></i>
+                    </div>
+                    <h3 data-lang="feature-3-title" class="text-xl font-semibold mb-2">Seamless Browser Integration</h3>
+                    <p data-lang="feature-3-desc" class="text-gray-600">Open bookmarks in Safari, Chrome, Edge, and Opera without hassle.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-exchange text-primary text-xl"></i>
+                    </div>
+                    <h3 data-lang="feature-4-title" class="text-xl font-semibold mb-2">Cross-Device Share</h3>
+                    <p data-lang="feature-4-desc" class="text-gray-600">Export HTML for PC homepage/bookmarks; import PC data to APP.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <div class="flex space-x-1">
+                            <i class="fa fa-safari text-primary"></i>
+                            <i class="fa fa-chrome text-primary"></i>
+                            <i class="fa fa-edge text-primary"></i>
+                        </div>
+                    </div>
+                    <h3 data-lang="feature-5-title" class="text-xl font-semibold mb-2">Multi-browser Support</h3>
+                    <p data-lang="feature-5-desc" class="text-gray-600">Built-in browser with rich search engines, meeting diverse browsing habits.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-shield text-primary text-xl"></i>
+                    </div>
+                    <h3 data-lang="feature-6-title" class="text-xl font-semibold mb-2">Security & Tools</h3>
+                    <p data-lang="feature-6-desc" class="text-gray-600">Gesture password for privacy; built-in Shortcut Manager.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    ◆ Efficient URL Management: Search, edit, add, delete smoothly—no clutter.
+    <!-- Pro Version Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 data-lang="pro-title" class="text-3xl font-bold text-center mb-12">Pro Version Advantages</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-md overflow-hidden">
+                <div class="p-8 md:p-10">
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="mt-1 text-secondary"><i class="fa fa-check-circle text-xl"></i></div>
+                            <div>
+                                <h3 data-lang="pro-1-title" class="text-xl font-semibold mb-1">Batch operations</h3>
+                                <p data-lang="pro-1-desc" class="text-gray-600">Select/edit/delete/share for efficiency.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="mt-1 text-secondary"><i class="fa fa-check-circle text-xl"></i></div>
+                            <div>
+                                <h3 data-lang="pro-2-title" class="text-xl font-semibold mb-1">Full Browser Support</h3>
+                                <p data-lang="pro-2-desc" class="text-gray-600">Deeply optimized for Safari, Chrome, Edge, and Opera, ensuring unobstructed and more stable bookmark opening.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="mt-1 text-secondary"><i class="fa fa-check-circle text-xl"></i></div>
+                            <div>
+                                <h3 data-lang="pro-3-title" class="text-xl font-semibold mb-1">Ad-free experience</h3>
+                                <p data-lang="pro-3-desc" class="text-gray-600">Enjoy an uninterrupted browsing and bookmark management without any ads.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="mt-1 text-secondary"><i class="fa fa-check-circle text-xl"></i></div>
+                            <div>
+                                <h3 data-lang="pro-4-title" class="text-xl font-semibold mb-1">Enhanced Performance</h3>
+                                <p data-lang="pro-4-desc" class="text-gray-600">Faster speed + clearer structure + long-term support.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-10 text-center">
+                        <a href="https://apps.apple.com/us/app/bookmarkers-pro/id574292030" target="_blank" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-lg transition-all-300 shadow-md hover:shadow-lg">
+                            <i class="fa fa-rocket mr-2"></i>
+                            <span data-lang="upgrade-pro">Upgrade to Pro</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    ◆ iCloud Sync: Auto - sync bookmarks/history to iPhone/iPad/Mac/Vision Pro (independent of Safari iCloud; manual import/export for other browsers).
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 data-lang="testimonials-title" class="text-3xl font-bold text-center mb-12">User Reviews</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Great for Chrome!!! Needs multiple tag groups per bookmark. I'd also love bookmarklet support for Chrome using this app."</p>
+                    <div class="text-sm text-gray-500">— bdavis22</div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p data-lang="review-2" class="text-gray-700 mb-4">整理も簡単でとても便利です。他の方も書かれていますが、Safari からのインポート機能があれば最高！</p>
+                    <div class="text-sm text-gray-500">— 甘皮</div>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p data-lang="review-3" class="text-gray-700 mb-4">とても、シンプルで使いやすいです</p>
+                    <div class="text-sm text-gray-500">— けいこ @</div>
+                </div>
+                
+                <!-- Review 4 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p data-lang="review-4" class="text-gray-700 mb-4">今までホームにブラウザを貼り付けてただけだった私にはちょうどいい。 url を保存してすぐに行けし、余計な機能もないし追加に削除にグループ分けも出来て、ごくシンプルでこれだけ出来れば充分！</p>
+                    <div class="text-sm text-gray-500">— うちのタロ</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    ◆ Seamless Opening in Mainstream Browsers: Open bookmarks in Safari, Chrome, Edge, and Opera without hassle.
+    <!-- Support Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 data-lang="support-title" class="text-3xl font-bold text-center mb-8">Support & Feedback</h2>
+            <p data-lang="support-desc" class="text-center text-lg mb-10">Check in-app tutorial for help; email 283784210@qq.com for suggestions.</p>
+            
+            <div class="text-center">
+                <a href="mailto:283784210@qq.com" class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-6 py-3 rounded-lg transition-all-300 shadow-sm hover:shadow">
+                    <i class="fa fa-envelope"></i>
+                    <span>283784210@qq.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    ◆ Cross - Device Share: Export HTML for PC homepage/bookmarks; import PC data to APP.
+    <!-- Download Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 data-lang="download-title" class="text-3xl font-bold mb-6">Download now:</h2>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+                <a href="https://apps.apple.com/us/app/bookmarkers-pro/id574292030" target="_blank" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all-300 shadow-lg hover:shadow-xl">
+                    <i class="fa fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">Download on the</div>
+                        <div>Bookmarkers Pro</div>
+                    </div>
+                </a>
+                <a href="https://apps.apple.com/us/app/bookmarkers/id564474256" target="_blank" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all-300 shadow-lg hover:shadow-xl">
+                    <i class="fa fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs">Download on the</div>
+                        <div>Bookmarkers (Free)</div>
+                    </div>
+                </a>
+            </div>
+            
+            <p class="text-xl">
+                <a href="https://kyo9999.github.io/" target="_blank" class="text-white hover:text-gray-100 underline transition-all-300">
+                    <span data-lang="discover-more">Discover more productivity tools</span>
+                </a>
+            </p>
+        </div>
+    </section>
 
-    ◆ Multi - browser Support: Built - in browser with rich search engines, meeting diverse browsing habits.
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-4 mb-4" style="display: none;">
+                <a href="#" class="hover:text-primary transition-all-300"><i class="fa fa-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-primary transition-all-300"><i class="fa fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-primary transition-all-300"><i class="fa fa-instagram text-xl"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">© 2012-<span id="current-year"></span> Jun Zhu. All rights reserved.</p>
+        </div>
+    </footer>
 
-    ◆ Security & Tools: Gesture password for privacy; built - in Shortcut Manager.
+    <script>
+        // 设置当前年份
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            document.getElementById('current-year').textContent = currentYear;
+        });
 
-3.  **Pro Version Advantages**
+        // Language translations object
+        const translations = {
+            'en': {
+                'title': 'Bookmarkers: Efficient Web Bookmark Manager',
+                'subtitle': 'Recommended in Japan & China\'s popular sections | 4.5 - 5 star rating. Simple, easy-to-use for browsing.',
+                'features-title': 'Core Features',
+                'feature-1-title': 'Efficient URL Management',
+                'feature-1-desc': 'Search, edit, add, delete smoothly—no clutter.',
+                'feature-2-title': 'iCloud Sync',
+                'feature-2-desc': 'Auto-sync bookmarks/history to iPhone/iPad/Mac/Vision Pro (independent of Safari iCloud; manual import/export for other browsers).',
+                'feature-3-title': 'Seamless Browser Integration',
+                'feature-3-desc': 'Open bookmarks in Safari, Chrome, Edge, and Opera without hassle.',
+                'feature-4-title': 'Cross-Device Share',
+                'feature-4-desc': 'Export HTML for PC homepage/bookmarks; import PC data to APP.',
+                'feature-5-title': 'Multi-browser Support',
+                'feature-5-desc': 'Built-in browser with rich search engines, meeting diverse browsing habits.',
+                'feature-6-title': 'Security & Tools',
+                'feature-6-desc': 'Gesture password for privacy; built-in Shortcut Manager.',
+                'pro-title': 'Pro Version Advantages',
+                'pro-1-title': 'Batch operations',
+                'pro-1-desc': 'Select/edit/delete/share for efficiency.',
+                'pro-2-title': 'Full Browser Support',
+                'pro-2-desc': 'Deeply optimized for Safari, Chrome, Edge, and Opera, ensuring unobstructed and more stable bookmark opening.',
+                'pro-3-title': 'Ad-free experience',
+                'pro-3-desc': 'Enjoy an uninterrupted browsing and bookmark management without any ads.',
+                'pro-4-title': 'Enhanced Performance',
+                'pro-4-desc': 'Faster speed + clearer structure + long-term support.',
+                'upgrade-pro': 'Upgrade to Pro',
+                'testimonials-title': 'User Reviews',
+                'review-2': '整理も簡単でとても便利です。他の方も書かれていますが、Safari からのインポート機能があれば最高！',
+                'review-3': 'とても、シンプルで使いやすいです',
+                'review-4': '今までホームにブラウザを貼り付けてただけだった私にはちょうどいい。 url を保存してすぐに行けし、余計な機能もないし追加に削除にグループ分けも出来て、ごくシンプルでこれだけ出来れば充分！',
+                'support-title': 'Support & Feedback',
+                'support-desc': 'Check in-app tutorial for help; email 283784210@qq.com for suggestions.',
+                'download-title': 'Download now:',
+                'discover-more': 'Discover more productivity tools'
+            },
+            'zh-CN': {
+                'title': 'Bookmarkers：高效书签管理工具',
+                'subtitle': '日本 & 中国热门特色区推荐 | 4.5 - 5 分高分，极简好用的上网助手。',
+                'features-title': '核心功能',
+                'feature-1-title': '高效管理 URL',
+                'feature-1-desc': '查、编、增、删流畅，告别杂乱书签。',
+                'feature-2-title': 'iCloud 全设备同步',
+                'feature-2-desc': '自动同步书签 / 历史至 iPhone/iPad/Mac/Vision Pro（与 Safari iCloud 独立，其他浏览器需手动导书签）。',
+                'feature-3-title': '主流浏览器无缝打开',
+                'feature-3-desc': '支持在 Safari、Chrome、Edge、Opera 等主流浏览器中无缝打开书签，操作无阻碍。',
+                'feature-4-title': '跨端共享',
+                'feature-4-desc': 'APP 导出 HTML 当 PC 主页 / 书签；PC 数据可导入 APP，实现数据互通。',
+                'feature-5-title': '多浏览器支持',
+                'feature-5-desc': '内置浏览器配备丰富搜索引擎，满足不同浏览习惯。',
+                'feature-6-title': '安全与工具',
+                'feature-6-desc': '手势密码护隐私，内置快捷方式管理器。',
+                'pro-title': '专业版优势',
+                'pro-1-title': '批量操作',
+                'pro-1-desc': '选 / 编 / 删 / 分享，效率翻倍。',
+                'pro-2-title': '主流浏览器无缝打开全面支持',
+                'pro-2-desc': '针对 Safari、Chrome、Edge、Opera 等主流浏览器深度优化，确保书签打开更稳定、操作无阻碍。',
+                'pro-3-title': '无广告体验',
+                'pro-3-desc': '享受无广告干扰的书签管理和浏览过程，操作更流畅。',
+                'pro-4-title': '更快速度与清晰架构',
+                'pro-4-desc': '更快速度 + 清晰架构 + 长期技术支持。',
+                'upgrade-pro': '升级至专业版',
+                'testimonials-title': '用户评价',
+                'review-2': '整理简单，非常方便。正如其他人所说，如果有从 Safari 导入的功能就太棒了！',
+                'review-3': '非常简单易用。',
+                'review-4': '对于以前只是把浏览器贴在主页上的我来说正好。保存网址后可以立即访问，没有多余的功能，可以添加、删除和分组，非常简单，能做到这些就足够了！',
+                'support-title': '支持与反馈',
+                'support-desc': '查看内置教程获取帮助；建议可发邮件至 283784210@qq.com。',
+                'download-title': '立即下载：',
+                'discover-more': '探索更多生产力工具'
+            },
+            'zh-TW': {
+                'title': 'Bookmarkers：高效書籤管理工具',
+                'subtitle': '日本 & 中國熱門特色區推薦 | 4.5 - 5 分高分，極簡好用的上網助手。',
+                'features-title': '核心功能',
+                'feature-1-title': '高效管理 URL',
+                'feature-1-desc': '查、編、增、刪流暢，告別雜亂書籤。',
+                'feature-2-title': 'iCloud 全設備同步',
+                'feature-2-desc': '自動同步書籤 / 紀錄至 iPhone/iPad/Mac/Vision Pro（與 Safari iCloud 獨立，其他瀏覽器需手動匯書籤）。',
+                'feature-3-title': '主流瀏覽器無縫打開',
+                'feature-3-desc': '支援在 Safari、Chrome、Edge、Opera 等主流瀏覽器中無縫打開書籤，操作無阻礙。',
+                'feature-4-title': '跨端共享',
+                'feature-4-desc': 'APP 匯出 HTML 當 PC 首頁 / 書籤；PC 數據可匯入 APP，實現數據互通。',
+                'feature-5-title': '多瀏覽器支援',
+                'feature-5-desc': '內建瀏覽器配備豐富搜尋引擎，滿足不同瀏覽習慣。',
+                'feature-6-title': '安全與工具',
+                'feature-6-desc': '手勢密碼護隱私，內建快捷方式管理器。',
+                'pro-title': '專業版優勢',
+                'pro-1-title': '批次操作',
+                'pro-1-desc': '選 / 編 / 刪 / 分享，效率翻倍。',
+                'pro-2-title': '主流瀏覽器無縫打開全面支援',
+                'pro-2-desc': '針對 Safari、Chrome、Edge、Opera 等主流瀏覽器深度優化，確保書籤打開更穩定、操作無阻礙。',
+                'pro-3-title': '無廣告體驗',
+                'pro-3-desc': '享受無廣告干擾的書籤管理和瀏覽過程，操作更流暢。',
+                'pro-4-title': '更快速度與清晰架構',
+                'pro-4-desc': '更快速度 + 清晰架構 + 長期技術支援。',
+                'upgrade-pro': '升級至專業版',
+                'testimonials-title': '使用者評價',
+                'review-2': '整理簡單，非常方便。正如其他人所說，如果有從 Safari 匯入的功能就太棒了！',
+                'review-3': '非常簡單易用。',
+                'review-4': '對於以前只是把瀏覽器貼在主頁上的我來說正好。保存網址後可以立即訪問，沒有多餘的功能，可以添加、刪除和分組，非常簡單，能做到這些就足夠了！',
+                'support-title': '支援與反饋',
+                'support-desc': '查看內建教學获取幫助；建議可寄郵件至 283784210@qq.com。',
+                'download-title': '立即下載：',
+                'discover-more': '探索更多生產力工具'
+            },
+            'ja': {
+                'title': 'Bookmarkers：効率的ブックマーク管理ツール',
+                'subtitle': '日本・中国の人気特集推薦 | 4.5～5 点高評価，シンプルな上網補助アプリ。',
+                'features-title': 'コア機能',
+                'feature-1-title': 'URL 高效管理',
+                'feature-1-desc': '検索 / 編集 / 追加 / 削除がスムーズ，乱雑なブックマーク解消。',
+                'feature-2-title': 'iCloud 全デバイス同步',
+                'feature-2-desc': 'ブックマーク / 履歴を iPhone/iPad/Mac/Vision Pro に自動同步（Safari iCloud と独立，他ブラウザは手動インポート / エクスポート）。',
+                'feature-3-title': '主流ブラウザ無縫開啟',
+                'feature-3-desc': 'Safari、Chrome、Edge、Opera 等主流ブラウザでブックマークを無縫で開け，操作に支障なし。',
+                'feature-4-title': 'クロスデバイス共有',
+                'feature-4-desc': 'HTML をエクスポートし PC ホームページ / ブックマークに；PC データを APP にインポート可，データの相互流通を実現。',
+                'feature-5-title': '多ブラウザ対応',
+                'feature-5-desc': '内蔵ブラウザに豊富な検索エンジンを搭載，異なるブラウジング習慣に対応。',
+                'feature-6-title': '安全・ツール',
+                'feature-6-desc': 'ジェスチャーパスワードでプライバシー保護；ショートカットマネージャー内蔵。',
+                'pro-title': 'Pro バージョンのメリット',
+                'pro-1-title': '一括操作',
+                'pro-1-desc': '選択 / 編集 / 削除 / 共有で効率アップ。',
+                'pro-2-title': '主流ブラウザ無縫開啟全面対応',
+                'pro-2-desc': 'Safari、Chrome、Edge、Opera 等主流ブラウザに対し深度最適化を行い，ブックマークの開啟をより安定化させ、操作に支障なし。',
+                'pro-3-title': '広告非表示',
+                'pro-3-desc': '広告が一切表示されないため、快適なブックマーク管理と閲覧体験ができます。',
+                'pro-4-title': '高速化と明確な構造',
+                'pro-4-desc': '高速化 + 明確な構造 + 長期技術サポート。',
+                'upgrade-pro': 'Pro へアップグレード',
+                'testimonials-title': 'ユーザーレビュー',
+                'review-2': '整理も簡単でとても便利です。他の方も書かれていますが、Safari からのインポート機能があれば最高！',
+                'review-3': 'とても、シンプルで使いやすいです',
+                'review-4': '今までホームにブラウザを貼り付けてただけだった私にはちょうどいい。 url を保存してすぐに行けし、余計な機能もないし追加に削除にグループ分けも出来て、ごくシンプルでこれだけ出来れば充分！',
+                'support-title': 'サポートとフィードバック',
+                'support-desc': 'アプリ内チュートリアルを確認してヘルプを取得；改善提案は 283784210@qq.com までメール。',
+                'download-title': '今すぐダウンロード：',
+                'discover-more': 'さらに多くの生産性ツールを発見'
+            }
+        };
 
-    ◆ Batch operations (select/edit/delete/share) for efficiency.
+        // Change language function
+        function changeLanguage(lang) {
+            // Update all elements with translation attributes
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                
+                // Apply translation if available
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Highlight active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('hover:bg-gray-100');
+            });
+            
+            const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find(
+                btn => btn.textContent.trim() === {
+                    'en': 'English',
+                    'zh-CN': '简体中文',
+                    'zh-TW': '繁体中文',
+                    'ja': '日本語'
+                }[lang]
+            );
+            
+            if (activeBtn) {
+                activeBtn.classList.remove('hover:bg-gray-100');
+                activeBtn.classList.add('bg-primary', 'text-white');
+            }
+            
+            // Save preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
 
-    ◆ Full Support for Seamless Opening in Mainstream Browsers: Deeply optimized for Safari, Chrome, Edge, and Opera, ensuring unobstructed and more stable bookmark opening.
-
-    ◆ Ad - free experience: Enjoy an uninterrupted browsing and bookmark management without any ads.
-
-    ◆ Faster speed + clearer structure + long - term support.
-
-4.  **User Reviews**
-
-    ◆ Great for Chrome!!! ★★★★★ (by bdavis22 - Version 1.5 - Dec 30, 2012): "Needs multiple tag groups per bookmark. I'd also love bookmarklet support for Chrome using this app. This app has let me clean up all the safari bookmark shortcuts so that I can do more with apps on my iphone. I would also love to be able to call this app from speed u."
-
-    ◆ 重宝してます ★★★★ (by 甘皮 - Version 1.5 - Jan 2, 2013): "整理も簡単でとても便利です。他の方も書かれていますが、Safari からのインポート機能があれば最高！"
-
-    ◆ 良い良い ★★★★ (by みゆゆー - Version 1.5 - Dec 22, 2012): "他の方も書かれているように、ブラウザからのインポート機能がついたらもっと嬉しいです。"
-
-    ◆ 使いやすい ★★★★ (by ハイネマン - Version 1.4 - Dec 14, 2012): "すぐ色々なとこにつなげるので使いやすい。"
-
-    ◆ パスワード ★★★★ (by Yue\* - Version 1.4 - Nov 30, 2012): "パスワードを設定できるので、大変助かっています。 Safari からのブックマークを簡単にインポートできたら、もっといいなぁと思います！"
-
-    ◆ OK ★★★★ (by Luckysevn - Version 1.2 - Nov 10, 2012): "いいと思います (^-^) By iphone5"
-
-    ◆ 良い ★★★★★ (by けいこ @ - Version 1.2 - Nov 9, 2012): "とても、シンプルで使いやすいです"
-
-    ◆ 文句は一つもない ★★★★★ (by うちのタロ - Version 1.2 - Nov 8, 2012): "今までホームにブラウザを貼り付けてただけだった私にはちょうどいい。 url を保存してすぐに行けし、余計な機能もないし追加に削除にグループ分けも出来て、ごくシンプルでこれだけ出来れば充分！"
-
-5.  **Support & Feedback**
-
-    Check in - app tutorial for help; email 283784210@qq.com for suggestions.
-
-👇 Download now:
-• Bookmarkers Pro: https://apps.apple.com/us/app/bookmarkers-pro/id574292030
-• Bookmarkers (Free): https://apps.apple.com/us/app/bookmarkers/id564474256
-
-Discover more productivity tools: https://kyo9999.github.io/
+        // Initialize with user's preferred language or default to English
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            changeLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
+    
