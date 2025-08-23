@@ -67,6 +67,36 @@
                 color: white;
                 font-weight: 600;
             }
+            .feature-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 8px;
+            }
+            .feature-item i {
+                color: #0071e3;
+                margin-top: 4px;
+            }
+            .app-number {
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                width: 28px;
+                height: 28px;
+                background-color: #0071e3;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: bold;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+            .app-icon-container {
+                position: relative;
+                display: inline-block;
+            }
         }
     </style>
 </head>
@@ -126,18 +156,82 @@
                 <!-- 应用1: Bookmarkers Pro -->
                 <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/45/5e/89455ef7-5e9b-4887-d23e-61b839c8e48a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
-                             alt="Bookmarkers Pro" 
-                             class="w-32 h-32 app-icon">
+                        <div class="app-icon-container">
+                            <span class="app-number">1</span>
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/45/5e/89455ef7-5e9b-4887-d23e-61b839c8e48a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
+                                 alt="Bookmarkers Pro" 
+                                 class="w-32 h-32 app-icon">
+                        </div>
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-semibold mb-2">Bookmarkers Pro</h4>
                         <p class="text-gray-600 mb-4">
-                            <span class="lang-en">Professional bookmark management with cross-device sync and advanced organization.</span>
-                            <span class="lang-zh-CN hidden">专业书签管理，支持跨设备同步和高级组织功能。</span>
-                            <span class="lang-zh-TW hidden">專業書籤管理，支援跨裝置同步和高級組織功能。</span>
-                            <span class="lang-ja hidden">クロスデバイス同期と高度な組織化を備えたプロフェッショナルなブックマーク管理。</span>
+                            <span class="lang-en">Professional bookmark management with cross-device sync, advanced organization. 5-star reviews: "This tool revolutionized how I manage bookmarks! The cloud sync is seamless." | "多機能で使いやすい！クラウド同期が安定しています。"</span>
+                            <span class="lang-zh-CN hidden">专业书签管理，支持跨设备同步和高级组织功能。5星评价："这款工具彻底改变了我的书签管理方式！云同步非常流畅。" | "功能丰富且易用！云同步稳定可靠。"</span>
+                            <span class="lang-zh-TW hidden">專業書籤管理，支援跨裝置同步和高級組織功能。5星評價："這款工具徹底改變了我的書籤管理方式！雲同步非常流暢。" | "功能豐富且易用！雲同步穩定可靠。"</span>
+                            <span class="lang-ja hidden">クロスデバイス同期と高度な組織化を備えたプロフェッショナルなブックマーク管理。5つ星レビュー："このツールはブックマーク管理の仕方を革新しました！クラウド同期はシームレスです。" | "多機能で使いやすい！クラウド同期が安定しています。"</span>
                         </p>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium mb-2 text-dark">
+                                <span class="lang-en">Pro Features:</span>
+                                <span class="lang-zh-CN hidden">专业版功能：</span>
+                                <span class="lang-zh-TW hidden">專業版功能：</span>
+                                <span class="lang-ja hidden">Pro版機能：</span>
+                            </h5>
+                            <div class="text-gray-600 text-sm space-y-1">
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Batch operations (select/edit/delete/share)</span>
+                                    <span class="lang-zh-CN hidden">批量操作（选择/编辑/删除/分享）</span>
+                                    <span class="lang-zh-TW hidden">批次操作（選/編/刪/分享）</span>
+                                    <span class="lang-ja hidden">一括操作（選択/編集/削除/共有）</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Full support for mainstream browsers</span>
+                                    <span class="lang-zh-CN hidden">全面支持主流浏览器</span>
+                                    <span class="lang-zh-TW hidden">全面支援主流瀏覽器</span>
+                                    <span class="lang-ja hidden">主流ブラウザ全面対応</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Ad-free experience</span>
+                                    <span class="lang-zh-CN hidden">无广告体验</span>
+                                    <span class="lang-zh-TW hidden">無廣告體驗</span>
+                                    <span class="lang-ja hidden">広告非表示體驗</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Advanced tag management & auto-categorization</span>
+                                    <span class="lang-zh-CN hidden">高级标签管理与自动分类</span>
+                                    <span class="lang-zh-TW hidden">高級標籤管理與自動分類</span>
+                                    <span class="lang-ja hidden">高度なタグ管理と自動分類</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Unlimited cloud backup & restore</span>
+                                    <span class="lang-zh-CN hidden">无限云备份与恢复</span>
+                                    <span class="lang-zh-TW hidden">無限雲備份與恢復</span>
+                                    <span class="lang-ja hidden">無制限クラウドバックアップと復元</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Advanced search with content indexing</span>
+                                    <span class="lang-zh-CN hidden">带内容索引的高级搜索</span>
+                                    <span class="lang-zh-TW hidden">帶內容索引的高級搜索</span>
+                                    <span class="lang-ja hidden">コンテンツインデックスを備えた高度な検索</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Expired link detection & webpage snapshots</span>
+                                    <span class="lang-zh-CN hidden">过期链接检测与网页快照</span>
+                                    <span class="lang-zh-TW hidden">過期鏈接檢測與網頁快照</span>
+                                    <span class="lang-ja hidden">期限切れリンク検出とウェブページスナップショット</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="flex justify-between items-center">
                             <div class="flex items-center text-yellow-400">
                                 <i class="fa fa-star"></i>
@@ -163,18 +257,82 @@
                 <!-- 应用2: Bookmarkers -->
                 <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/92/c9/9d92c9c6-fff2-0a45-0806-327ab703bbe7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
-                             alt="Bookmarkers" 
-                             class="w-32 h-32 app-icon">
+                        <div class="app-icon-container">
+                            <span class="app-number">2</span>
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/92/c9/9d92c9c6-fff2-0a45-0806-327ab703bbe7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/246x0w.webp" 
+                                 alt="Bookmarkers" 
+                                 class="w-32 h-32 app-icon">
+                        </div>
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-semibold mb-2">Bookmarkers</h4>
-                        <p class="text-gray-600 mb-4">
-                            <span class="lang-en">Simple and effective bookmark management for everyday use.</span>
-                            <span class="lang-zh-CN hidden">简单有效的书签管理工具，适合日常使用。</span>
-                            <span class="lang-zh-TW hidden">簡單有效的書籤管理工具，適合日常使用。</span>
-                            <span class="lang-ja hidden">日常使用に適したシンプルで効果的なブックマーク管理ツール。</span>
+                        <p class="text-gray-600 mb-3">
+                            <span class="lang-en">Recommended in Japan & China's popular sections with 4.5-5 star rating. 5-star reviews: "Great for Chrome!!!" (bdavis22) | "とても、シンプルで使いやすいです" (けいこ @)</span>
+                            <span class="lang-zh-CN hidden">日本 & 中国热门特色区推荐，4.5-5分高分评价。5星评价："非常适合Chrome！" (bdavis22) | "非常简单易用。" (けいこ @)</span>
+                            <span class="lang-zh-TW hidden">日本 & 中國熱門特色區推薦，4.5-5分高分評價。5星評價："非常適合Chrome！" (bdavis22) | "非常簡單易用。" (けいこ @)</span>
+                            <span class="lang-ja hidden">日本・中国の人気特集推薦、4.5～5点高評価。5つ星レビュー："Chromeに最適です！" (bdavis22) | "とても、シンプルで使いやすいです" (けいこ @)</span>
                         </p>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium mb-2 text-dark">
+                                <span class="lang-en">Core Features:</span>
+                                <span class="lang-zh-CN hidden">核心功能：</span>
+                                <span class="lang-zh-TW hidden">核心功能：</span>
+                                <span class="lang-ja hidden">コア機能：</span>
+                            </h5>
+                            <div class="text-gray-600 text-sm space-y-1">
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Efficient URL management (search, edit, add, delete)</span>
+                                    <span class="lang-zh-CN hidden">高效管理URL（查、编、增、删）</span>
+                                    <span class="lang-zh-TW hidden">高效管理URL（查、編、增、刪）</span>
+                                    <span class="lang-ja hidden">URL高效管理（検索/編集/追加/削除）</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">iCloud sync across devices (iPhone/iPad/Mac/Vision Pro)</span>
+                                    <span class="lang-zh-CN hidden">iCloud全设备同步（iPhone/iPad/Mac/Vision Pro）</span>
+                                    <span class="lang-zh-TW hidden">iCloud全設備同步（iPhone/iPad/Mac/Vision Pro）</span>
+                                    <span class="lang-ja hidden">iCloud全デバイス同步（iPhone/iPad/Mac/Vision Pro）</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Seamless opening in browsers (Safari/Chrome/Edge/Opera)</span>
+                                    <span class="lang-zh-CN hidden">主流浏览器无缝打开（Safari/Chrome/Edge/Opera）</span>
+                                    <span class="lang-zh-TW hidden">主流瀏覽器無縫打開（Safari/Chrome/Edge/Opera）</span>
+                                    <span class="lang-ja hidden">主流ブラウザ無縫開啟（Safari/Chrome/Edge/Opera）</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Cross-device sharing (HTML import/export)</span>
+                                    <span class="lang-zh-CN hidden">跨端共享（HTML导入/导出）</span>
+                                    <span class="lang-zh-TW hidden">跨端共享（HTML匯入/匯出）</span>
+                                    <span class="lang-ja hidden">クロスデバイス共有（HTMLインポート/エクスポート）</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Built-in browser with multiple search engines</span>
+                                    <span class="lang-zh-CN hidden">内置浏览器，支持多种搜索引擎</span>
+                                    <span class="lang-zh-TW hidden">內建瀏覽器，支援多種搜尋引擎</span>
+                                    <span class="lang-ja hidden">内蔵ブラウザ，複数の検索エンジン対応</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Privacy protection (gesture password) & shortcut management</span>
+                                    <span class="lang-zh-CN hidden">隐私保护（手势密码）与快捷方式管理</span>
+                                    <span class="lang-zh-TW hidden">隱私保護（手勢密碼）與快捷方式管理</span>
+                                    <span class="lang-ja hidden">プライバシー保護（ジェスチャーパスワード）とショートカット管理</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-check-circle"></i>
+                                    <span class="lang-en">Invalid link detection & manual categorization</span>
+                                    <span class="lang-zh-CN hidden">无效链接检测与手动分类</span>
+                                    <span class="lang-zh-TW hidden">無效鏈接檢測與手動分類</span>
+                                    <span class="lang-ja hidden">無効なリンク検出と手動分類</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="flex justify-between items-center">
                             <div class="flex items-center text-yellow-400">
                                 <i class="fa fa-star"></i>
@@ -182,7 +340,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
-                                <span class="text-gray-600 ml-2 text-sm">(4.0)</span>
+                                <span class="text-gray-600 ml-2 text-sm">(4.2)</span>
                             </div>
                             <a href="https://apps.apple.com/us/app/bookmarkers/id564474256" 
                                target="_blank" 
@@ -200,9 +358,12 @@
                 <!-- 应用3: Shortcut Manager Pro -->
                 <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-accent/10 flex items-center justify-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/7f/dd/7f/7fdd7f5c-30d5-084d-982b-6bbe4d41b243/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
-                             alt="Shortcut Manager Pro" 
-                             class="w-32 h-32 app-icon">
+                        <div class="app-icon-container">
+                            <span class="app-number">3</span>
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/7f/dd/7f/7fdd7f5c-30d5-084d-982b-6bbe4d41b243/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
+                                 alt="Shortcut Manager Pro" 
+                                 class="w-32 h-32 app-icon">
+                        </div>
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-semibold mb-2">Shortcut Manager Pro</h4>
@@ -221,7 +382,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <span class="text-gray-600 ml-2 text-sm">(4.2)</span>
                             </div>
-                            <a href="https://apps.apple.com/us/app/shortcut-manager-pro/id591392350" 
+                            <a href="https://apps.apple.com/us/app/shortcut-manager-pro/id1063032942" 
                                target="_blank" 
                                class="text-primary font-medium hover:underline flex items-center gap-1">
                                 <span class="lang-en">View</span>
@@ -237,9 +398,12 @@
                 <!-- 应用4: Shortcut Manager -->
                 <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-accent/10 flex items-center justify-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/12/23/65/12236511-bd93-9077-0380-88c60dd3f2c2/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
-                             alt="Shortcut Manager" 
-                             class="w-32 h-32 app-icon">
+                        <div class="app-icon-container">
+                            <span class="app-number">4</span>
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/12/23/65/12236511-bd93-9077-0380-88c60dd3f2c2/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
+                                 alt="Shortcut Manager" 
+                                 class="w-32 h-32 app-icon">
+                        </div>
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-semibold mb-2">Shortcut Manager</h4>
@@ -258,7 +422,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <span class="text-gray-600 ml-2 text-sm">(3.5)</span>
                             </div>
-                            <a href="https://apps.apple.com/us/app/shortcut-manager/id595156397" 
+                            <a href="https://apps.apple.com/us/app/shortcut-manager/id987832274" 
                                target="_blank" 
                                class="text-primary font-medium hover:underline flex items-center gap-1">
                                 <span class="lang-en">View</span>
@@ -271,15 +435,18 @@
                     </div>
                 </div>
 
-                <!-- 应用5: Text Search - Notes Search -->
+                <!-- 应用5: Text Search -->
                 <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
-                    <div class="h-52 bg-purple-500/10 flex items-center justify-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/83/b9/31/83b931d5-18ae-60df-dd15-0aa8fc08b131/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/246x0w.webp" 
-                             alt="Text Search - Notes Search" 
-                             class="w-32 h-32 app-icon">
+                    <div class="h-52 bg-primary/10 flex items-center justify-center">
+                        <div class="app-icon-container">
+                            <span class="app-number">5</span>
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/83/b9/31/83b931d5-18ae-60df-dd15-0aa8fc08b131/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/246x0w.webp" 
+                                 alt="Text Search" 
+                                 class="w-32 h-32 app-icon">
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="text-xl font-semibold mb-2">Text Search - Notes Search</h4>
+                        <h4 class="text-xl font-semibold mb-2">Text Search</h4>
                         <p class="text-gray-600 mb-4">
                             <span class="lang-en">Powerful text searching tool for notes and documents with advanced filters.</span>
                             <span class="lang-zh-CN hidden">iOS备忘录或粘贴板搜索和批量替换工具</span>
@@ -310,18 +477,21 @@
 
                 <!-- 应用6: Sudoku Calculator -->
                 <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
-                    <div class="h-52 bg-orange-500/10 flex items-center justify-center">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
-                             alt="Sudoku Calculator" 
-                             class="w-32 h-32 app-icon">
+                    <div class="h-52 bg-primary/10 flex items-center justify-center">
+                        <div class="app-icon-container">
+                            <span class="app-number">6</span>
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                                 alt="Sudoku Calculator" 
+                                 class="w-32 h-32 app-icon">
+                        </div>
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-semibold mb-2">Sudoku Calculator</h4>
                         <p class="text-gray-600 mb-4">
-                            <span class="lang-en">Solve any Sudoku puzzle with advanced solving algorithms and hints.</span>
-                            <span class="lang-zh-CN hidden">使用高级求解算法和提示解决任何数独难题。</span>
-                            <span class="lang-zh-TW hidden">使用高級求解算法和提示解決任何數獨難題。</span>
-                            <span class="lang-ja hidden">高度な解法アルゴリズムとヒントを使って、どんな数独の問題も解くことができます。</span>
+                            <span class="lang-en">Solve any Sudoku puzzle with step-by-step explanations and hints.</span>
+                            <span class="lang-zh-CN hidden">数独计算器，支持一步一步解题并提供详细步骤说明。</span>
+                            <span class="lang-zh-TW hidden">數獨計算器，支持一步一步解題並提供詳細步驟說明。</span>
+                            <span class="lang-ja hidden">ステップバイステップの説明とヒントでどんな数独パズルも解けます。</span>
                         </p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center text-yellow-400">
@@ -329,10 +499,10 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span class="text-gray-600 ml-2 text-sm">(4.1)</span>
+                                <i class="fa fa-star-half-o"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(4.6)</span>
                             </div>
-                            <a href="https://apps.apple.com/us/app/sudoku-calculator/id1212772153" 
+                            <a href="https://apps.apple.com/us/app/sudoku-calculator/id1194980857" 
                                target="_blank" 
                                class="text-primary font-medium hover:underline flex items-center gap-1">
                                 <span class="lang-en">View</span>
@@ -348,110 +518,295 @@
         </div>
     </section>
 
-    <!-- 底部链接区域 -->
-    <section class="bg-secondary py-12">
+    <!-- 用户评价 -->
+    <section class="py-20 bg-secondary">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-center">
-                <a href="mailto:283784210@qq.com" class="flex items-center gap-2 hover:text-primary transition-colors">
-                    <i class="fa fa-envelope"></i>
-                    <span class="lang-en">Email</span>
-                    <span class="lang-zh-CN hidden">邮箱</span>
-                    <span class="lang-zh-TW hidden">郵箱</span>
-                    <span class="lang-ja hidden">メール</span>
-                </a>
-                <a href="https://apps.apple.com/us/developer/jun-zhu/id564474259" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
-                    <i class="fa fa-apple"></i>
-                    <span class="lang-en">App Store Profile</span>
-                    <span class="lang-zh-CN hidden">App Store资料</span>
-                    <span class="lang-zh-TW hidden">App Store資料</span>
-                    <span class="lang-ja hidden">App Storeプロフィール</span>
-                </a>
-                <a href="https://www.jianshu.com/p/0d898b923c92" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
-                    <i class="fa fa-lock"></i>
-                    <span class="lang-en">Privacy Policy</span>
-                    <span class="lang-zh-CN hidden">隐私政策</span>
-                    <span class="lang-zh-TW hidden">隱私政策</span>
-                    <span class="lang-ja hidden">プライバシーポリシー</span>
-                </a>
-                <a href="https://kyo9999.github.io" class="flex items-center gap-2 hover:text-primary transition-colors">
-                    <i class="fa fa-info-circle"></i>
-                    <span class="lang-en">About</span>
-                    <span class="lang-zh-CN hidden">关于</span>
-                    <span class="lang-zh-TW hidden">關於</span>
-                    <span class="lang-ja hidden">について</span>
-                </a>
-                <a href="mailto:283784210@qq.com" class="flex items-center gap-2 hover:text-primary transition-colors">
-                    <i class="fa fa-comments"></i>
-                    <span class="lang-en">Contact</span>
-                    <span class="lang-zh-CN hidden">联系</span>
-                    <span class="lang-zh-TW hidden">聯繫</span>
-                    <span class="lang-ja hidden">お問い合わせ</span>
-                </a>
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-16">
+                <span class="lang-en">User Reviews</span>
+                <span class="lang-zh-CN hidden">用户评价</span>
+                <span class="lang-zh-TW hidden">使用者評價</span>
+                <span class="lang-ja hidden">ユーザーレビュー</span>
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 评价1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        <span class="lang-en">"Great for Chrome!!! This app has let me clean up all the safari bookmark shortcuts so that I can do more with apps on my iphone."</span>
+                        <span class="lang-zh-CN hidden">"非常适合Chrome！这个应用让我清理了所有Safari书签快捷方式，使我能在iPhone上更好地使用应用。"</span>
+                        <span class="lang-zh-TW hidden">"非常適合Chrome！這個應用讓我清理了所有Safari書籤快捷方式，使我能在iPhone上更好地使用應用。"</span>
+                        <span class="lang-ja hidden">"Chromeに最適です！このアプリにより、Safariのブックマークショートカットをすべて整理でき、iPhone上でアプリをより効果的に使用できるようになりました。"</span>
+                    </p>
+                    <div class="text-gray-500 text-sm">
+                        <span class="lang-en">— bdavis22, Bookmarkers</span>
+                        <span class="lang-zh-CN hidden">— bdavis22，Bookmarkers用户</span>
+                        <span class="lang-zh-TW hidden">— bdavis22，Bookmarkers使用者</span>
+                        <span class="lang-ja hidden">— bdavis22、Bookmarkersユーザー</span>
+                    </div>
+                </div>
+                
+                <!-- 评价2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        <span class="lang-en">"Very simple and easy to use. It would be even better if there was an import function from Safari."</span>
+                        <span class="lang-zh-CN hidden">"非常简单易用。如果有从Safari导入的功能就更好了。"</span>
+                        <span class="lang-zh-TW hidden">"非常簡單易用。如果有從Safari導入的功能就更好了。"</span>
+                        <span class="lang-ja hidden">"とても簡単で使いやすいです。Safariからのインポート機能があればさらに良いです。"</span>
+                    </p>
+                    <div class="text-gray-500 text-sm">
+                        <span class="lang-en">— 甘皮, Bookmarkers</span>
+                        <span class="lang-zh-CN hidden">— 甘皮，Bookmarkers用户</span>
+                        <span class="lang-zh-TW hidden">— 甘皮，Bookmarkers使用者</span>
+                        <span class="lang-ja hidden">— 甘皮、Bookmarkersユーザー</span>
+                    </div>
+                </div>
+                
+                <!-- 评价3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        <span class="lang-en">"Perfect for me who just used to put browsers on the home screen. Saves URLs for quick access, no extra features, simple and sufficient!"</span>
+                        <span class="lang-zh-CN hidden">"对于只是把浏览器放在主屏幕上的我来说正好。保存URL以便快速访问，没有多余的功能，简单实用！"</span>
+                        <span class="lang-zh-TW hidden">"對於只是把瀏覽器放在主屏幕上的我來說正好。保存URL以便快速訪問，沒有多餘的功能，簡單實用！"</span>
+                        <span class="lang-ja hidden">"今までホームにブラウザを貼り付けてただけだった私にはちょうどいい。URLを保存してすぐにアクセスでき、余計な機能もなく、シンプルで十分です！"</span>
+                    </p>
+                    <div class="text-gray-500 text-sm">
+                        <span class="lang-en">— うちのタロ, Bookmarkers</span>
+                        <span class="lang-zh-CN hidden">— うちのタロ，Bookmarkers用户</span>
+                        <span class="lang-zh-TW hidden">— うちのタロ，Bookmarkers使用者</span>
+                        <span class="lang-ja hidden">— うちのタロ、Bookmarkersユーザー</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 版权信息区域 -->
-    <footer class="bg-dark text-white py-8">
+    <!-- 支持与反馈 -->
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <p class="mb-4 text-center">
-                <span class="lang-en">© 2012-<span class="current-year"></span> Jun Zhu. All rights reserved.</span>
-                <span class="lang-zh-CN hidden">© 2012-<span class="current-year"></span> Jun Zhu. 保留所有权利。</span>
-                <span class="lang-zh-TW hidden">© 2012-<span class="current-year"></span> Jun Zhu. 保留所有權利。</span>
-                <span class="lang-ja hidden">© 2012-<span class="current-year"></span> Jun Zhu. 全著作権所有。</span>
-            </p>
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-16">
+                <span class="lang-en">Support & Feedback</span>
+                <span class="lang-zh-CN hidden">支持与反馈</span>
+                <span class="lang-zh-TW hidden">支援與反饋</span>
+                <span class="lang-ja hidden">サポートとフィードバック</span>
+            </h3>
+            
+            <div class="max-w-2xl mx-auto bg-secondary p-8 rounded-xl">
+                <p class="text-gray-700 mb-6 text-center">
+                    <span class="lang-en">Check in-app tutorial for help; email us for suggestions and support.</span>
+                    <span class="lang-zh-CN hidden">查看内置教程获取帮助；欢迎发送邮件提出建议和获取支持。</span>
+                    <span class="lang-zh-TW hidden">查看內建教學获取幫助；歡迎發送郵件提出建議和获取支援。</span>
+                    <span class="lang-ja hidden">アプリ内チュートリアルを確認してヘルプを取得；提案やサポートはメールでお問い合わせください。</span>
+                </p>
+                
+                <div class="flex justify-center">
+                    <a href="mailto:283784210@qq.com" class="bg-primary text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-primary/90 transition-colors">
+                        <i class="fa fa-envelope"></i>
+                        <span>283784210@qq.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="lang-en">Applications</span>
+                        <span class="lang-zh-CN hidden">应用程序</span>
+                        <span class="lang-zh-TW hidden">應用程序</span>
+                        <span class="lang-ja hidden">アプリケーション</span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://apps.apple.com/us/app/bookmarkers-pro/id574292030" target="_blank" class="hover:text-primary transition-colors">Bookmarkers Pro</a></li>
+                        <li><a href="https://apps.apple.com/us/app/bookmarkers/id564474256" target="_blank" class="hover:text-primary transition-colors">Bookmarkers</a></li>
+                        <li><a href="https://apps.apple.com/us/app/shortcut-manager-pro/id1063032942" target="_blank" class="hover:text-primary transition-colors">Shortcut Manager Pro</a></li>
+                        <li><a href="https://apps.apple.com/us/app/shortcut-manager/id987832274" target="_blank" class="hover:text-primary transition-colors">Shortcut Manager</a></li>
+                        <li><a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" target="_blank" class="hover:text-primary transition-colors">Text Search</a></li>
+                        <li><a href="https://apps.apple.com/us/app/sudoku-calculator/id1194980857" target="_blank" class="hover:text-primary transition-colors">Sudoku Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 只隐藏不移除布局 -->
+                <!-- <div style="visibility: hidden"> -->
+                <!-- 移除布局，右侧元素就会左移动 -->
+                <div style="display: none">
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="lang-en">Resources</span>
+                        <span class="lang-zh-CN hidden">资源</span>
+                        <span class="lang-zh-TW hidden">資源</span>
+                        <span class="lang-ja hidden">リソース</span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <a href="#" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-book"></i>
+                            <span class="lang-en">Tutorials</span>
+                            <span class="lang-zh-CN hidden">教程</span>
+                            <span class="lang-zh-TW hidden">教程</span>
+                            <span class="lang-ja hidden">チュートリアル</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="lang-en">FAQs</span>
+                            <span class="lang-zh-CN hidden">常见问题</span>
+                            <span class="lang-zh-TW hidden">常見問題</span>
+                            <span class="lang-ja hidden">よくある質問</span>
+                        </a>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="lang-en">Company</span>
+                        <span class="lang-zh-CN hidden">公司</span>
+                        <span class="lang-zh-TW hidden">公司</span>
+                        <span class="lang-ja hidden">会社</span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <a href="https://www.jianshu.com/p/0d898b923c92" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-lock"></i>
+                            <span class="lang-en">Privacy Policy</span>
+                            <span class="lang-zh-CN hidden">隐私政策</span>
+                            <span class="lang-zh-TW hidden">隱私政策</span>
+                            <span class="lang-ja hidden">プライバシーポリシー</span>
+                        </a>
+                        <a href="https://kyo9999.github.io" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="lang-en">About</span>
+                            <span class="lang-zh-CN hidden">关于</span>
+                            <span class="lang-zh-TW hidden">關於</span>
+                            <span class="lang-ja hidden">について</span>
+                        </a>
+                        <a href="mailto:283784210@qq.com" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-comments"></i>
+                            <span class="lang-en">Contact</span>
+                            <span class="lang-zh-CN hidden">联系</span>
+                            <span class="lang-zh-TW hidden">聯繫</span>
+                            <span class="lang-ja hidden">お問い合わせ</span>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
+                <p id="copyrightYear">© 2012-2023 Jun Zhu. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
         // 语言切换功能
         document.addEventListener('DOMContentLoaded', function() {
-            // 处理语言选择器
+            // 更新版权年份
+            const copyrightElement = document.getElementById('copyrightYear');
+            const currentYear = new Date().getFullYear();
+            copyrightElement.textContent = `© 2012-${currentYear} Jun Zhu. All rights reserved.`;
+            
             const languageSelector = document.getElementById('languageSelector');
             const languageDropdown = document.getElementById('languageDropdown');
-            const languageOptions = document.querySelectorAll('.language-option');
             const currentLangElement = document.getElementById('currentLang');
-
-            // 切换下拉菜单显示状态
+            const languageOptions = document.querySelectorAll('.language-option');
+            
+            // 切换下拉菜单显示/隐藏
             languageSelector.addEventListener('click', function() {
                 languageDropdown.classList.toggle('hidden');
             });
-
+            
             // 点击其他区域关闭下拉菜单
             document.addEventListener('click', function(event) {
                 if (!languageSelector.contains(event.target) && !languageDropdown.contains(event.target)) {
                     languageDropdown.classList.add('hidden');
                 }
             });
-
-            // 处理语言选择
+            
+            // 语言选项点击事件
             languageOptions.forEach(option => {
                 option.addEventListener('click', function() {
                     const lang = this.getAttribute('data-lang');
                     switchLanguage(lang);
-                    currentLangElement.textContent = this.querySelector('span').textContent;
+                    
+                    // 更新当前语言显示
+                    const langNames = {
+                        'en': 'English',
+                        'zh-CN': '简体中文',
+                        'zh-TW': '繁體中文',
+                        'ja': '日本語'
+                    };
+                    currentLangElement.textContent = langNames[lang];
+                    
+                    // 关闭下拉菜单
                     languageDropdown.classList.add('hidden');
                 });
             });
-
+            
             // 切换语言函数
             function switchLanguage(lang) {
                 // 隐藏所有语言元素
                 document.querySelectorAll('[class^="lang-"]').forEach(el => {
                     el.classList.add('hidden');
                 });
+                
                 // 显示选中语言元素
                 document.querySelectorAll(`.lang-${lang}`).forEach(el => {
                     el.classList.remove('hidden');
+                    el.classList.add('fade-in');
                 });
+                
+                // 保存用户选择
+                localStorage.setItem('preferredLanguage', lang);
             }
-
-            // 自动更新版权年份
-            const currentYear = new Date().getFullYear();
-            document.querySelectorAll('.current-year').forEach(el => {
-                el.textContent = currentYear;
+            
+            // 检查本地存储中的首选语言
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                switchLanguage(savedLang);
+                const langNames = {
+                    'en': 'English',
+                    'zh-CN': '简体中文',
+                    'zh-TW': '繁體中文',
+                    'ja': '日本語'
+                };
+                currentLangElement.textContent = langNames[savedLang];
+            }
+            
+            // 导航栏滚动效果
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                    header.classList.add('shadow');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                    header.classList.remove('shadow');
+                }
             });
         });
     </script>
 </body>
 </html>
+
