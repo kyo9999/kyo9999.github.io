@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO关键词 -->
+    <meta name="keywords" content="Text Search Replace, 文本搜索替换, 备忘录工具, 正则表达式, iOS应用, Mac应用">
+    <meta name="description" content="Text Search Replace: Notes - 专业的文本搜索替换工具，支持备忘录和各类文本应用，提供正则表达式和批量处理功能。">
+    <title>Text Search Replace: Notes - 文本搜索替换工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        // Tailwind 配置
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0071e3', // 苹果蓝
+                        secondary: '#f5f5f7',
+                        dark: '#1d1d1f',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .app-icon {
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border-radius: 20%;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            }
+            .app-icon:hover {
+                transform: scale(1.05) rotate(2deg);
+            }
+            .nav-blur {
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            .feature-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                margin-bottom: 12px;
+            }
+            .feature-item i {
+                color: #0071e3;
+                margin-top: 4px;
+                flex-shrink: 0;
+            }
+            .review-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .review-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-dark font-sans">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/80 nav-blur shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- 显示产品名称，移除返回按钮 -->
+                <h1 class="text-xl font-semibold text-primary">
+                    <span class="lang-en">Text Search Replace: Notes</span>
+                    <span class="lang-zh-CN hidden">文本搜索替换：备忘录</span>
+                    <span class="lang-zh-TW hidden">文字搜尋取代：備忘錄</span>
+                    <span class="lang-ja hidden">テキスト検索置換：ノート</span>
+                </h1>
+            </div>
+            
+            <!-- 语言选择器 -->
+            <div class="relative">
+                <button id="languageSelector" class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:border-gray-300 transition-colors">
+                    <i class="fa fa-globe text-primary"></i>
+                    <span id="currentLang">English</span>
+                    <i class="fa fa-chevron-down text-xs"></i>
+                </button>
+                <div id="languageDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg overflow-hidden hidden z-50">
+                    <button data-lang="en" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors">English</button>
+                    <button data-lang="zh-CN" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors">简体中文</button>
+                    <button data-lang="zh-TW" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors">繁體中文</button>
+                    <button data-lang="ja" class="language-option w-full text-left px-4 py-3 hover:bg-secondary transition-colors">日本語</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 产品介绍主体 -->
+    <main class="py-12">
+        <!-- 产品头部 -->
+        <section class="container mx-auto px-4 mb-16">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <!-- 应用图标 -->
+                <div class="flex-shrink-0">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/83/1d/27831deb-8962-9286-4881-d6c0fecd1254/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/246x0w.webp" 
+                         alt="Text Search Replace应用图标" 
+                         class="w-40 h-40 md:w-56 md:h-56 app-icon">
+                </div>
+                
+                <!-- 产品信息 -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                        <span class="lang-en">Text Search Replace: Notes</span>
+                        <span class="lang-zh-CN hidden">文本搜索替换：备忘录</span>
+                        <span class="lang-zh-TW hidden">文字搜尋取代：備忘錄</span>
+                        <span class="lang-ja hidden">テキスト検索置換：ノート</span>
+                    </h1>
+                    
+                    <!-- 评分 - 移除2000+评价 -->
+                    <div class="flex items-center justify-center md:justify-start text-yellow-400 mb-4">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span class="text-gray-600 ml-2">(4.9)</span>
+                    </div>
+                    
+                    <!-- 设备支持 -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                            <i class="fa fa-mobile"></i> iPhone
+                        </span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                            <i class="fa fa-tablet"></i> iPad
+                        </span>
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                            <i class="fa fa-desktop"></i> Mac
+                        </span>
+                    </div>
+                    
+                    <!-- 下载按钮 -->
+                    <a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-md hover:shadow-lg">
+                        <i class="fa fa-download"></i>
+                        <span class="lang-en">Download on the App Store</span>
+                        <span class="lang-zh-CN hidden">在 App Store 下载</span>
+                        <span class="lang-zh-TW hidden">在 App Store 下載</span>
+                        <span class="lang-ja hidden">App Store でダウンロード</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 产品描述 -->
+        <section class="container mx-auto px-4 mb-16">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-center">
+                    <span class="lang-en">Powerful Text Processing Tool</span>
+                    <span class="lang-zh-CN hidden">强大的文本处理工具</span>
+                    <span class="lang-zh-TW hidden">強大的文字處理工具</span>
+                    <span class="lang-ja hidden">強力なテキスト処理ツール</span>
+                </h2>
+                
+                <p class="text-gray-700 text-lg mb-6 text-center">
+                    <span class="lang-en">Enhance your productivity with advanced search and replace features for Notes and all text-based applications.</span>
+                    <span class="lang-zh-CN hidden">借助专为备忘录和所有文本应用设计的高级搜索替换功能，提升您的工作效率。</span>
+                    <span class="lang-zh-TW hidden">藉由專為備忘錄和所有文字應用設計的高級搜索取代功能，提升您的工作效率。</span>
+                    <span class="lang-ja hidden">メモとすべてのテキストベースアプリケーション向けの高級検索置換機能で生産性を向上させます。</span>
+                </p>
+            </div>
+        </section>
+        
+        <!-- 核心功能 -->
+        <section class="bg-secondary py-16 mb-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-12 text-center">
+                    <span class="lang-en">Key Features</span>
+                    <span class="lang-zh-CN hidden">核心功能</span>
+                    <span class="lang-zh-TW hidden">核心功能</span>
+                    <span class="lang-ja hidden">主な機能</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-search text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">
+                            <span class="lang-en">Preview Before Replace</span>
+                            <span class="lang-zh-CN hidden">替换前预览</span>
+                            <span class="lang-zh-TW hidden">取代前預覽</span>
+                            <span class="lang-ja hidden">置換前プレビュー</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Preview results before search/replace to avoid mistakes and ensure accuracy.</span>
+                            <span class="lang-zh-CN hidden">搜索/替换前预览结果，避免误操作并确保准确性。</span>
+                            <span class="lang-zh-TW hidden">搜索/取代前預覽結果，避免誤操作並確保準確性。</span>
+                            <span class="lang-ja hidden">検索/置換前に結果をプレビューして、ミスを回避し精度を確保します。</span>
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-code text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">
+                            <span class="lang-en">Regex Support</span>
+                            <span class="lang-zh-CN hidden">正则表达式支持</span>
+                            <span class="lang-zh-TW hidden">正則運算式支援</span>
+                            <span class="lang-ja hidden">正規表現サポート</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Supports case-sensitive search and regular expressions for advanced text manipulation.</span>
+                            <span class="lang-zh-CN hidden">支持大小写敏感搜索和正则表达式，实现高级文本处理。</span>
+                            <span class="lang-zh-TW hidden">支援大小寫敏感搜索和正則運算式，實現高級文字處理。</span>
+                            <span class="lang-ja hidden">大文字小文字区別検索と正規表現をサポートし、高度なテキスト操作を実現します。</span>
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <!-- 使用特殊字符相关图标，代表换行符等非打印字符 -->
+                            <i class="fa fa-terminal text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">
+                            <span class="lang-en">Special Characters</span>
+                            <span class="lang-zh-CN hidden">特殊字符处理</span>
+                            <span class="lang-zh-TW hidden">特殊符號處理</span>
+                            <span class="lang-ja hidden">特殊記号処理</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Handles non-printable characters and special symbols like line breaks (\n) with ease.</span>
+                            <span class="lang-zh-CN hidden">轻松处理非打印字符和特殊符号，如换行符(\n)等。</span>
+                            <span class="lang-zh-TW hidden">輕鬆處理非列印字元和特殊符號，如換行符(\n)等。</span>
+                            <span class="lang-ja hidden">改行文字(\n)などの非印刷文字と特殊記号を簡単に処理できます。</span>
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-list-ol text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">
+                            <span class="lang-en">Flexible Replacement</span>
+                            <span class="lang-zh-CN hidden">灵活的替换方式</span>
+                            <span class="lang-zh-TW hidden">靈活的取代方式</span>
+                            <span class="lang-ja hidden">柔軟な置換方式</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Choose between one-by-one or batch replacement according to your needs.</span>
+                            <span class="lang-zh-CN hidden">可根据需要选择逐个替换或批量替换。</span>
+                            <span class="lang-zh-TW hidden">可根據需要選擇逐個取代或批次取代。</span>
+                            <span class="lang-ja hidden">必要に応じて、一つずつの置換または一括置換を選択できます。</span>
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-history text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">
+                            <span class="lang-en">Operation History</span>
+                            <span class="lang-zh-CN hidden">操作历史记录</span>
+                            <span class="lang-zh-TW hidden">操作歷史記錄</span>
+                            <span class="lang-ja hidden">操作履歴記録</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Input history cache for frequent operations to save time and effort.</span>
+                            <span class="lang-zh-CN hidden">历史输入缓存，方便频繁操作，节省时间和精力。</span>
+                            <span class="lang-zh-TW hidden">歷史輸入快取，方便頻繁操作，節省時間和精力。</span>
+                            <span class="lang-ja hidden">頻繁な操作のための入力履歴キャッシュで、時間と労力を節約します。</span>
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-paste text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">
+                            <span class="lang-en">Wide Compatibility</span>
+                            <span class="lang-zh-CN hidden">广泛的兼容性</span>
+                            <span class="lang-zh-TW hidden">廣泛的相容性</span>
+                            <span class="lang-ja hidden">広範な互換性</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Works seamlessly with Notes, Clipboard and all text-based applications.</span>
+                            <span class="lang-zh-CN hidden">与备忘录、粘贴板及所有文本应用无缝协作。</span>
+                            <span class="lang-zh-TW hidden">與備忘錄、剪貼簿及所有文字應用無縫協作。</span>
+                            <span class="lang-ja hidden">メモ、クリップボード、およびすべてのテキストベースアプリケーションとシームレスに動作します。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 用户评价 - 添加应用图标和下载链接 -->
+        <section class="container mx-auto px-4 mb-16">
+            <h2 class="text-2xl font-bold mb-12 text-center">
+                <span class="lang-en">User Reviews</span>
+                <span class="lang-zh-CN hidden">用户评价</span>
+                <span class="lang-zh-TW hidden">使用者評價</span>
+                <span class="lang-ja hidden">ユーザーレビュー</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" target="_blank" class="block">
+                    <div class="bg-white p-6 rounded-xl shadow-sm review-card h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/83/1d/27831deb-8962-9286-4881-d6c0fecd1254/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/246x0w.webp" 
+                                 alt="Text Search Replace应用图标" 
+                                 class="w-10 h-10 rounded">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4 italic">
+                            <span class="lang-en">"Perfectly solves the batch search and replace problem in iOS Notes."</span>
+                            <span class="lang-zh-CN hidden">"完美解决iOS备忘录批量搜索和替换问题。"</span>
+                            <span class="lang-zh-TW hidden">"完美解決iOS備忘錄批量搜索和替換問題。"</span>
+                            <span class="lang-ja hidden">"iOSメモの一括検索と置換の問題を完璧に解決します。"</span>
+                        </p>
+                        <div class="text-gray-500 text-sm">
+                            <span class="lang-en">— Productivity user</span>
+                            <span class="lang-zh-CN hidden">— 高效办公用户</span>
+                            <span class="lang-zh-TW hidden">— 高效辦公用戶</span>
+                            <span class="lang-ja hidden">— 生産性向上ユーザー</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" target="_blank" class="block">
+                    <div class="bg-white p-6 rounded-xl shadow-sm review-card h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/83/1d/27831deb-8962-9286-4881-d6c0fecd1254/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/246x0w.webp" 
+                                 alt="Text Search Replace应用图标" 
+                                 class="w-10 h-10 rounded">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4 italic">
+                            <span class="lang-en">"Great support for case sensitivity and special characters."</span>
+                            <span class="lang-zh-CN hidden">"很好支持大小写敏感和特殊字符处理。"</span>
+                            <span class="lang-zh-TW hidden">"很好支持大小寫敏感和特殊符號處理。"</span>
+                            <span class="lang-ja hidden">"大文字小文字の区別と特殊記号の処理に優れたサポートを提供します。"</span>
+                        </p>
+                        <div class="text-gray-500 text-sm">
+                            <span class="lang-en">— Productivity user</span>
+                            <span class="lang-zh-CN hidden">— 高效办公用户</span>
+                            <span class="lang-zh-TW hidden">— 高效辦公用戶</span>
+                            <span class="lang-ja hidden">— 生産性向上ユーザー</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" target="_blank" class="block">
+                    <div class="bg-white p-6 rounded-xl shadow-sm review-card h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/83/1d/27831deb-8962-9286-4881-d6c0fecd1254/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/246x0w.webp" 
+                                 alt="Text Search Replace应用图标" 
+                                 class="w-10 h-10 rounded">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4 italic">
+                            <span class="lang-en">"Excellent regex support, successfully replaced line breaks in one go!"</span>
+                            <span class="lang-zh-CN hidden">"很棒支持正则，一次替换换行成功！"</span>
+                            <span class="lang-zh-TW hidden">"很棒支持正則，一次替換換行成功！"</span>
+                            <span class="lang-ja hidden">"優れた正規表現サポートで、一度に改行を置換することに成功しました！"</span>
+                        </p>
+                        <div class="text-gray-500 text-sm">
+                            <span class="lang-en">— Productivity user</span>
+                            <span class="lang-zh-CN hidden">— 高效办公用户</span>
+                            <span class="lang-zh-TW hidden">— 高效辦公用戶</span>
+                            <span class="lang-ja hidden">— 生産性向上ユーザー</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <!-- 下载区域 -->
+        <section class="bg-primary/5 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-2xl font-bold mb-6">
+                    <span class="lang-en">Ready to Enhance Your Text Processing?</span>
+                    <span class="lang-zh-CN hidden">准备好提升您的文本处理效率了吗？</span>
+                    <span class="lang-zh-TW hidden">準備好提升您的文字處理效率了嗎？</span>
+                    <span class="lang-ja hidden">テキスト処理を強化する準備はできていますか？</span>
+                </h2>
+                
+                <a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" 
+                   target="_blank" 
+                   class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-medium px-8 py-4 rounded-full transition-colors shadow-md hover:shadow-lg text-lg">
+                    <i class="fa fa-download"></i>
+                    <span class="lang-en">Download Text Search Replace: Notes</span>
+                    <span class="lang-zh-CN hidden">下载文本搜索替换：备忘录</span>
+                    <span class="lang-zh-TW hidden">下載文字搜尋取代：備忘錄</span>
+                    <span class="lang-ja hidden">テキスト検索置換：ノートをダウンロード</span>
+                </a>
+                
+                <p class="text-gray-600 mt-4">
+                    <span class="lang-en">Available on iPhone, iPad and Mac</span>
+                    <span class="lang-zh-CN hidden">支持iPhone、iPad和Mac</span>
+                    <span class="lang-zh-TW hidden">支援iPhone、iPad和Mac</span>
+                    <span class="lang-ja hidden">iPhone、iPad、Macに対応</span>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="lang-en">Applications</span>
+                        <span class="lang-zh-CN hidden">应用程序</span>
+                        <span class="lang-zh-TW hidden">應用程序</span>
+                        <span class="lang-ja hidden">アプリケーション</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://apps.apple.com/us/app/bookmarkers-pro/id574292030" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7e/53/91/7e539181-797b-05ec-22fa-049d327b132f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/460x0w.webp" 
+                                     alt="Bookmarkers Pro icon" 
+                                     class="w-6 h-6 rounded">
+                                <span class="lang-en">Bookmarkers Pro</span>
+                                <span class="lang-zh-CN hidden">书签管理专业版</span>
+                                <span class="lang-zh-TW hidden">書籤管理專業版</span>
+                                <span class="lang-ja hidden">ブックマーカー Pro</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.apple.com/us/app/bookmarkers/id564474256" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2e/ca/cb/2ecacb73-2754-ed71-129f-339910ea759e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/460x0w.webp" 
+                                     alt="Bookmarkers icon" 
+                                     class="w-6 h-6 rounded">
+                                <span class="lang-en">Bookmarkers</span>
+                                <span class="lang-zh-CN hidden">书签管理</span>
+                                <span class="lang-zh-TW hidden">書籤管理</span>
+                                <span class="lang-ja hidden">ブックマーカー</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.apple.com/us/app/shortcut-manager-pro/id1063032942" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/7f/dd/7f/7fdd7f5c-30d5-084d-982b-6bbe4d41b243/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
+                                     alt="Shortcut Manager Pro icon" 
+                                     class="w-6 h-6 rounded">
+                                <span class="lang-en">Shortcut Manager Pro</span>
+                                <span class="lang-zh-CN hidden">快捷方式管理专业版</span>
+                                <span class="lang-zh-TW hidden">快捷方式管理專業版</span>
+                                <span class="lang-ja hidden">ショートカットマネージャー Pro</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.apple.com/us/app/shortcut-manager/id987832274" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/12/23/65/12236511-bd93-9077-0380-88c60dd3f2c2/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/246x0w.webp" 
+                                     alt="Shortcut Manager icon" 
+                                     class="w-6 h-6 rounded">
+                                <span class="lang-en">Shortcut Manager</span>
+                                <span class="lang-zh-CN hidden">快捷方式管理</span>
+                                <span class="lang-zh-TW hidden">快捷方式管理</span>
+                                <span class="lang-ja hidden">ショートカットマネージャー</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.apple.com/us/app/text-search-notes-search/id1099846720" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/83/1d/27831deb-8962-9286-4881-d6c0fecd1254/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/246x0w.webp" 
+                                     alt="Text Search icon" 
+                                     class="w-6 h-6 rounded">
+                                <span class="lang-en">Text Search Replace</span>
+                                <span class="lang-zh-CN hidden">文本搜索替换</span>
+                                <span class="lang-zh-TW hidden">文字搜尋取代</span>
+                                <span class="lang-ja hidden">テキスト検索置換</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://apps.apple.com/us/app/sudoku-calculator/id1194980857" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                                     alt="Sudoku Calculator icon" 
+                                     class="w-6 h-6 rounded">
+                                <span class="lang-en">Sudoku Calculator</span>
+                                <span class="lang-zh-CN hidden">数独计算器</span>
+                                <span class="lang-zh-TW hidden">數獨計算器</span>
+                                <span class="lang-ja hidden">数独計算機</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 只隐藏不移除布局 -->
+                <!-- <div style="visibility: hidden"> -->
+                <!-- 移除布局，右侧元素就会左移动 -->
+                <div style="display: none">
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="lang-en">Resources</span>
+                        <span class="lang-zh-CN hidden">资源</span>
+                        <span class="lang-zh-TW hidden">資源</span>
+                        <span class="lang-ja hidden">リソース</span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <a href="#" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-book"></i>
+                            <span class="lang-en">Tutorials</span>
+                            <span class="lang-zh-CN hidden">教程</span>
+                            <span class="lang-zh-TW hidden">教程</span>
+                            <span class="lang-ja hidden">チュートリアル</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-question-circle"></i>
+                            <span class="lang-en">FAQs</span>
+                            <span class="lang-zh-CN hidden">常见问题</span>
+                            <span class="lang-zh-TW hidden">常見問題</span>
+                            <span class="lang-ja hidden">よくある質問</span>
+                        </a>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">
+                        <span class="lang-en">Company</span>
+                        <span class="lang-zh-CN hidden">公司</span>
+                        <span class="lang-zh-TW hidden">公司</span>
+                        <span class="lang-ja hidden">会社</span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <a href="https://www.jianshu.com/p/0d898b923c92" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-lock"></i>
+                            <span class="lang-en">Privacy Policy</span>
+                            <span class="lang-zh-CN hidden">隐私政策</span>
+                            <span class="lang-zh-TW hidden">隱私政策</span>
+                            <span class="lang-ja hidden">プライバシーポリシー</span>
+                        </a>
+                        <a href="https://kyo9999.github.io" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="lang-en">About</span>
+                            <span class="lang-zh-CN hidden">关于</span>
+                            <span class="lang-zh-TW hidden">關於</span>
+                            <span class="lang-ja hidden">について</span>
+                        </a>
+                        <a href="mailto:283784210@qq.com" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <i class="fa fa-comments"></i>
+                            <span class="lang-en">Contact</span>
+                            <span class="lang-zh-CN hidden">联系</span>
+                            <span class="lang-zh-TW hidden">聯繫</span>
+                            <span class="lang-ja hidden">お問い合わせ</span>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
+                <p id="copyrightYear">© 2012-2023 Jun Zhu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 更新版权年份
+            const copyrightElement = document.getElementById('copyrightYear');
+            const currentYear = new Date().getFullYear();
+            copyrightElement.textContent = `© 2012-${currentYear} Jun Zhu. All rights reserved.`;
+            
+            const languageSelector = document.getElementById('languageSelector');
+            const languageDropdown = document.getElementById('languageDropdown');
+            const currentLangElement = document.getElementById('currentLang');
+            const languageOptions = document.querySelectorAll('.language-option');
+            
+            // 切换下拉菜单显示/隐藏
+            languageSelector.addEventListener('click', function() {
+                languageDropdown.classList.toggle('hidden');
+            });
+            
+            // 点击其他区域关闭下拉菜单
+            document.addEventListener('click', function(event) {
+                if (!languageSelector.contains(event.target) && !languageDropdown.contains(event.target)) {
+                    languageDropdown.classList.add('hidden');
+                }
+            });
+            
+            // 语言选项点击事件
+            languageOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                    
+                    // 更新当前语言显示
+                    const langNames = {
+                        'en': 'English',
+                        'zh-CN': '简体中文',
+                        'zh-TW': '繁體中文',
+                        'ja': '日本語'
+                    };
+                    currentLangElement.textContent = langNames[lang];
+                    
+                    // 关闭下拉菜单
+                    languageDropdown.classList.add('hidden');
+                });
+            });
+            
+            // 切换语言函数
+            function switchLanguage(lang) {
+                // 隐藏所有语言元素
+                document.querySelectorAll('[class^="lang-"]').forEach(el => {
+                    el.classList.add('hidden');
+                });
+                
+                // 显示选中语言元素
+                document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                    el.classList.remove('hidden');
+                    el.classList.add('fade-in');
+                });
+                
+                // 保存用户选择
+                localStorage.setItem('preferredLanguage', lang);
+            }
+            
+            // 检查本地存储中的首选语言
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                switchLanguage(savedLang);
+                const langNames = {
+                    'en': 'English',
+                    'zh-CN': '简体中文',
+                    'zh-TW': '繁體中文',
+                    'ja': '日本語'
+                };
+                currentLangElement.textContent = langNames[savedLang];
+            }
+            
+            // 导航栏滚动效果
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                    header.classList.add('shadow');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                    header.classList.remove('shadow');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
