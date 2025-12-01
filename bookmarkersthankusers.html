@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Thanks - Bookmarkers Pro Users</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .title {
+            font-size: 2.8rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .callout {
+            background: linear-gradient(45deg, #ffd89b, #19547b);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        
+        .contributors-list {
+            list-style: none;
+        }
+        
+        .contributor-item {
+            background: #f7fafc;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contributor-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contributor-name {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .contribution-type {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .idea-type {
+            background: #c6f6d5;
+            color: #276749;
+        }
+        
+        .request-type {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        
+        .bug-type {
+            background: #fefcbf;
+            color: #744210;
+        }
+        
+        .contribution-content {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .contribution-details {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 3px solid #a0aec0;
+        }
+        
+        .anonymous-note {
+            text-align: center;
+            color: #718096;
+            font-style: italic;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+        }
+        
+        .contact-button:hover {
+            background: #f7fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+        
+        .contact-button i {
+            font-style: normal;
+            font-weight: bold;
+        }
+        
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #4a5568;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            margin: 10px;
+        }
+        
+        .home-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .header, .section {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="text-center" style="margin-bottom: 20px;">
+                <a href="https://kyo9999.github.io/" class="home-button">
+                    <i>🏠</i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+            <h1 class="title">Special thanks to the users of Bookmarkers Pro</h1>
+            <p class="subtitle">Your feedback and suggestions have been invaluable in making Bookmarkers Pro better every day.</p>
+            <div class="callout">
+                Some people prefer to remain anonymous, so if you'd like to show your name and email, please tell us.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Excellent Contribution Users</h2>
+            <ul class="contributors-list">
+                
+                <!-- Contributor 1: Good Idea -->
+                <li class="contributor-item">
+                    <div class="contributor-name">anonymous</div>
+                    <span class="contribution-type idea-type">Give author a good idea</span>
+                    <div class="contribution-content">
+                        Suggestion for optimization:
+                        <div class="contribution-details">
+                            • Create a bookmarklet of BookmarkersPro in Safari<br>
+                            • URL of website opened in Safari is via bookmarklet automatically entered in BookmarkersPro URL box<br>
+                            • User only finalizes the new URL entry in BookmarkersPro by adding "descriptions"
+                        </div>
+                    </div>
+                </li>
+                
+                <!-- Contributor 2: Feature Request -->
+                <li class="contributor-item">
+                    <div class="contributor-name">anonymous</div>
+                    <span class="contribution-type request-type">Give author a request</span>
+                    <div class="contribution-content">
+                        Data sharing function, batch import/export many bookmarks of browser
+                    </div>
+                </li>
+                
+                <!-- Contributor 3: Bug Report -->
+                <li class="contributor-item">
+                    <div class="contributor-name">anonymous</div>
+                    <span class="contribution-type bug-type">Bug Report & Improvement</span>
+                    <div class="contribution-content">
+                        ☆ Items whose title beginning with 2-byte Japanese characters are not correctly sorted on the list. Please correct.
+                    </div>
+                </li>
+                
+                <!-- Contributor 4: Additional anonymous -->
+                <li class="contributor-item">
+                    <div class="contributor-name">anonymous</div>
+                    <span class="contribution-type">General Feedback</span>
+                    <div class="contribution-content">
+                        Thank you for your continued support and valuable feedback.
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="anonymous-note">
+            <p>We respect the privacy of our contributors. If you'd like to be acknowledged by name in future updates, please contact us!</p>
+            <div class="text-center" style="margin-top: 20px;">
+                <a href="mailto:283784210@qq.com" class="contact-button">
+                    <i>✉</i>
+                    <span>283784210@qq.com</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="text-center" style="margin-bottom: 20px;">
+                <a href="https://kyo9999.github.io/" class="home-button">
+                    <i>🏠</i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+            <p>Bookmarkers Pro - Making bookmark management smarter and more efficient</p>
+        </div>
+    </div>
+</body>
+</html>
