@@ -1,6 +1,6 @@
 # Bookmarkers
-<img width="1320" height="2868" alt="批量编辑" src="https://github.com/user-attachments/assets/0fd005f3-8557-4180-9fea-ea3659f20e56" />
-<img width="1320" height="2868" alt="iCloud Sync" src="https://github.com/user-attachments/assets/3639ce6e-117d-4b7c-afe5-5e1b9887c9b7" />
+<img width="1320" height="2868" alt="高效免费" src="https://github.com/user-attachments/assets/9046288a-e164-44b0-8ff0-4816b51f63c0" />
+<img width="1320" height="2868" alt="iCloud Sync" src="https://github.com/user-attachments/assets/524a2398-b49c-4a85-ab6a-e1a44342e8b7" />
 <img width="2048" height="2732" alt="数据共享" src="https://github.com/user-attachments/assets/c57f5fbb-e9df-43bd-8e17-7b6c18811d47" />
 <img width="2880" height="1800" alt="内置浏览器" src="https://github.com/user-attachments/assets/20218e5a-a9c9-4cc6-a7d7-71ea0ad1ed94" />
 
