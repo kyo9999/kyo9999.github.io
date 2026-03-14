@@ -153,10 +153,9 @@
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- 应用1: Bookmarkers -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="bookmarkers" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">1</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7e/53/91/7e539181-797b-05ec-22fa-049d327b132f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/460x0w.webp" 
                                  alt="Bookmarkers" 
                                  class="w-32 h-32 app-icon">
@@ -334,10 +333,9 @@
                 </div>
 
                 <!-- 应用2: Shortcut Manager -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="shortcut-manager" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-accent/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">2</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/78/6f/7f/786f7fb5-eb0d-d131-ffbf-0d3570b3b044/Placeholder.mill/400x400bb-75.jpg" 
                                  alt="Shortcut Manager" 
                                  class="w-32 h-32 app-icon">
@@ -498,10 +496,9 @@
                 </div>
 
                 <!-- 应用3: B2EB Pro -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="b2eb-pro" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">3</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9e/74/d0/9e74d0fe-144b-e345-3c0f-c6321f924868/Placeholder.mill/400x400bb-75.jpg" 
                                  alt="B2EB Pro" 
                                  class="w-32 h-32 app-icon">
@@ -524,6 +521,9 @@
                             </span>
                             <span class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
                                 <i class="fa fa-android"></i> Android
+                            </span>
+                            <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa fa-windows"></i> Windows
                             </span>
                         </div>
                         <h4 class="text-xl font-semibold mb-2">
@@ -630,15 +630,34 @@
                                     <span class="lang-ja hidden">Pro版</span>
                                 </a>
                             </div>
+                            <div class="flex gap-3">
+                                <a href="https://apps.microsoft.com/detail/9PGD81QZ5BLP" 
+                                   target="_blank" 
+                                   class="flex-1 bg-white border border-blue-600 text-blue-600 rounded-lg px-4 py-3 text-center font-medium hover:bg-blue-600 hover:text-white transition-colors">
+                                    <i class="fa fa-windows mr-2"></i>
+                                    <span class="lang-en">Free Version</span>
+                                    <span class="lang-zh-CN hidden">免费版</span>
+                                    <span class="lang-zh-TW hidden">免費版</span>
+                                    <span class="lang-ja hidden">無料版</span>
+                                </a>
+                                <a href="https://apps.microsoft.com/detail/9N9B08L4J6G6" 
+                                   target="_blank" 
+                                   class="flex-1 bg-blue-600 text-white rounded-lg px-4 py-3 text-center font-medium hover:bg-blue-700 transition-colors">
+                                    <i class="fa fa-windows mr-2"></i>
+                                    <span class="lang-en">Pro Version</span>
+                                    <span class="lang-zh-CN hidden">专业版</span>
+                                    <span class="lang-zh-TW hidden">專業版</span>
+                                    <span class="lang-ja hidden">Pro版</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 应用4: Text Search Replace: Notes-->
-                <div class="bg-secondary rounded-xl overflow overflow overflow-hidden shadow-md card-hover app-card">
+                <div id="text-search" class="bg-secondary rounded-xl overflow overflow overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">4</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/83/1d/27831deb-8962-9286-4881-d6c0fecd1254/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/246x0w.webp" 
                                  alt="Text Search Replace应用图标" 
                                  class="w-32 h-32 app-icon">
@@ -777,12 +796,140 @@
                     </div>
                 </div>
 
-                <!-- 应用5: Sudoku Calculator -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <!-- 应用: Sudoku All in One: 10K Puzzles -->
+                <div id="sudoku-all-in-one" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">5</span>
-                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e7/9c/c7/e79cc743-efa5-4c4c-0de5-ddadd237ef8f/Placeholder.mill/400x400bb-75.jpg" 
+                                 alt="Sudoku All in One icon" 
+                                 class="w-32 h-32 app-icon">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <!-- 设备兼容性标签 -->
+                        <div class="flex gap-2 mb-3 flex-wrap">
+                            <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa fa-mobile"></i> iPhone
+                            </span>
+                            <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa fa-tablet"></i> iPad
+                            </span>
+                            <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa fa-eye"></i> Vision Pro
+                            </span>
+                            <span class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa fa-android"></i> Android
+                            </span>
+                            <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa fa-windows"></i> Windows
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">
+                            <a href="https://apps.apple.com/us/app/sudoku-all-in-one-10k-puzzles/id949183847" target="_blank" class="hover:text-primary transition-colors">
+                                <span class="lang-en">Sudoku All in One</span>
+                                <span class="lang-zh-CN hidden">数独全能版</span>
+                                <span class="lang-zh-TW hidden">數獨全能版</span>
+                                <span class="lang-ja hidden">数独オールインワン</span>
+                            </a>
+                        </h4>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-en">Over ten thousand Sudoku puzzles with smart input and one-tap solving. Trains your brain, improves logical and mathematical thinking, and challenges you anytime, anywhere.<br>6 difficulty levels: Kids, Easy, Standard, Hard, Expert, Extreme. Suitable for everyone from beginners to professionals.<br>- Massive puzzle library: 10,000+ classic Sudoku puzzles, regularly updated with no repeats<br>- No ads: Clean experience without pop-ups or interruptions<br>- Millisecond-fast solver: Automatically calculates answers quickly to avoid getting stuck<br>- Smart input control: Automatically filters wrong numbers for accurate, efficient typing<br>- Dual marking: Supports confirmed and doubtful marks for clearer reasoning<br>- Smart memo: Lets you jot candidate numbers in each cell to assist solving<br>- One-tap controls: Restart, clear, keep memos, or full reset with one tap<br>- Powerful undo: Quickly reverses mistakes for easy correction<br>- Smart alert: Warns before clearing memos to prevent accidental loss<br>- Auto-save: Automatically saves progress, timer and memos when exiting; fully restores when resumed<br>- Smart hints: Toggle on/off freely, beginner-friendly and clean for experts<br>- Auto-brightness: Adjusts automatically during play and standby to protect eyes<br>- Share: Ask for help on hard puzzles or share achievements easily<br>How to play Sudoku: Fill the empty cells with numbers 1–9, with no duplicates in each row, column, and 3×3 box.<br>Feedback email: 283784210@qq.com</span>
+                            <span class="lang-zh-CN hidden">超万道数独谜题，内置智能输入与一键求解功能，轻松锻炼脑力、提升逻辑与数学思维，随时随地挑战自我。<br>6 大难度分级: 儿童、简单、标准、困难、专家、极致，满足新手到高手的全部需求。<br>- 海量题库: 10000+ 经典数独关卡，持续更新永不重复<br>- 纯净无广告: 全程清爽体验，无弹窗、无干扰<br>- 毫秒级求解器: 自动快速计算答案，轻松避免卡关<br>- 智能输入排除: 自动过滤错误数字，输入更精准高效<br>- 双重标记: 支持确认标记与疑问标记，推理更清晰<br>- 智能笔记: 可在每格记录候选数字，辅助解题思考<br>- 一键操作: 一键重启、一键清除、一键保留笔记清理全局<br>- 强大撤销: 快速回滚错误操作，改错更方便<br>- 智能提醒: 笔记清除提醒，避免误删重要记录<br>- 自动保存进度: 返回、退出关卡自动保存，重新进入自动加载，完美延续解题进度、计时与所有笔记<br>- 智能提示: 可自由开启 / 关闭，新手友好、高手纯净<br>- 亮度自适应: 游玩与闲置状态自动调节，更护眼<br>- 分享功能: 难题求助、解题成果轻松分享<br>数独玩法: 用数字 1–9 填满空格，保证每行、每列、每个 3×3 九宫格内数字不重复即可通关。<br>反馈邮箱: 283784210@qq.com</span>
+                            <span class="lang-zh-TW hidden">超萬道數獨謎題，內置智能輸入與一鍵求解功能，輕鬆鍛煉腦力、提升邏輯與數學思維，隨時隨地挑戰自我。<br>6 大難度分級: 兒童、簡單、標準、困難、專家、極致，滿足新手到高手的全部需求。<br>- 海量題庫: 10000+ 經典數獨關卡，持續更新永不重複<br>- 純淨無廣告: 全程清爽體驗，無彈窗、無干擾<br>- 毫秒級求解器: 自動快速計算答案，輕鬆避免卡關<br>- 智能輸入排除: 自動過濾錯誤數字，輸入更精準高效<br>- 雙重標記: 支持確認標記與疑問標記，推理更清晰<br>- 智能筆記: 可在每格記錄候選數字，輔助解題思考<br>- 一鍵操作: 一鍵重啟、一鍵清除、一鍵保留筆記清理全局<br>- 強大撤銷: 快速回滾錯誤操作，改錯更方便<br>- 智能提醒: 筆記清除提醒，避免誤刪重要記錄<br>- 自動保存進度: 返回、退出關卡自動保存，重新進入自動加載，完美延續解題進度、計時與所有筆記<br>- 智能提示: 可自由開啟 / 關閉，新手友好、高手純淨<br>- 亮度自適應: 遊玩與閒置狀態自動調節，更護眼<br>- 分享功能: 難題求助、解題成果輕鬆分享<br>數獨玩法: 用數字 1–9 填滿空格，保證每行、每列、每個 3×3 九宮格內數字不重複即可通關。<br>反饋郵箱: 283784210@qq.com</span>
+                            <span class="lang-ja hidden">十万以上の数独パズルを収録、スマート入力とワンタップ解答機能を搭載。脳力を鍛錬し、論理的思考と数学的思考を高め、いつでもどこでも自分自身に挑戦できます。<br>6段階の難易度：キッズ、初級、標準、上級、エキスパート、エクストリーム。初心者から上級者まで全てのニーズに対応。<br>- 豊富な問題数：10000問以上のクラシック数独、常に更新され重複しません<br>- 広告なし：ポップアップや邪魔な表示がなくクリーンなプレイ環境<br>- ミリ秒単位の解答機能：自動で素早く解答を計算し、行き詰まりを解消<br>- スマート入力制御：誤った数字を自動フィルタリング、正確で効率的な入力<br>- 二重マーク機能：確定マークと疑問マークに対応、推理が明確に<br>- スマートメモ：各マスに候補数字を記録可能、解答をサポート<br>- ワンタップ操作：リスタート、クリア、メモを保持して全体クリアがワンタップで<br>- 強力な取り消し機能：誤った操作をすばやく戻し、簡単に修正<br>- スマート通知：メモ削除前に警告、誤削除を防ぎます<br>- 自動セーブ機能：レベル戻る・終了時に自動保存、再開時に進行状況・時間・メモを完全復元<br>- スマートヒント：自由にオンオフ可能、初心者に優しく上級者はクリーンプレイ<br>- 自動輝度調整：プレイ中・待機中で自動調整、目に優しい<br>- シェア機能：難問の助けを求めたり、実績を簡単に共有<br>数独の遊び方：空白のマスに1～9の数字を埋め、縦一列・横一列・3×3のブロック内に同じ数字が重複しないようにします。<br>フィードバックメール：283784210@qq.com</span>
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <span class="text-gray-600 ml-2 text-sm">(4.8)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col gap-3">
+                            <div class="flex gap-3">
+                                <a href="https://apps.apple.com/us/app/sudoku-all-in-one-10k-puzzles/id6760212824" 
+                                   target="_blank" 
+                                   class="flex-1 bg-white border border-primary text-primary rounded-lg px-4 py-3 text-center font-medium hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fa fa-apple mr-2"></i>
+                                    <span class="lang-en">Free Version</span>
+                                    <span class="lang-zh-CN hidden">免费版</span>
+                                    <span class="lang-zh-TW hidden">免費版</span>
+                                    <span class="lang-ja hidden">無料版</span>
+                                </a>
+                                <a href="https://apps.apple.com/us/app/sudoku-all-in-one-pro-10k-puzzles/id6760212742" 
+                                   target="_blank" 
+                                   class="flex-1 bg-primary text-white rounded-lg px-4 py-3 text-center font-medium hover:bg-primary/90 transition-colors">
+                                    <i class="fa fa-apple mr-2"></i>
+                                    <span class="lang-en">Pro Version</span>
+                                    <span class="lang-zh-CN hidden">专业版</span>
+                                    <span class="lang-zh-TW hidden">專業版</span>
+                                    <span class="lang-ja hidden">Pro版</span>
+                                </a>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="https://play.google.com/store/apps/details?id=com.zhuyangjun.sudokuallinone" 
+                                   target="_blank" 
+                                   class="flex-1 bg-white border border-green-500 text-green-500 rounded-lg px-4 py-3 text-center font-medium hover:bg-green-500 hover:text-white transition-colors">
+                                    <i class="fa fa-android mr-2"></i>
+                                    <span class="lang-en">Free Version</span>
+                                    <span class="lang-zh-CN hidden">免费版</span>
+                                    <span class="lang-zh-TW hidden">免費版</span>
+                                    <span class="lang-ja hidden">無料版</span>
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.zhuyangjun.sudokuallinonepro" 
+                                   target="_blank" 
+                                   class="flex-1 bg-green-500 text-white rounded-lg px-4 py-3 text-center font-medium hover:bg-green-600 transition-colors">
+                                    <i class="fa fa-android mr-2"></i>
+                                    <span class="lang-en">Pro Version</span>
+                                    <span class="lang-zh-CN hidden">专业版</span>
+                                    <span class="lang-zh-TW hidden">專業版</span>
+                                    <span class="lang-ja hidden">Pro版</span>
+                                </a>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="https://apps.microsoft.com/detail/9N1XHGZMRG66" 
+                                   target="_blank" 
+                                   class="flex-1 bg-white border border-blue-600 text-blue-600 rounded-lg px-4 py-3 text-center font-medium hover:bg-blue-600 hover:text-white transition-colors">
+                                    <i class="fa fa-windows mr-2"></i>
+                                    <span class="lang-en">Free Version</span>
+                                    <span class="lang-zh-CN hidden">免费版</span>
+                                    <span class="lang-zh-TW hidden">免費版</span>
+                                    <span class="lang-ja hidden">無料版</span>
+                                </a>
+                                <a href="https://apps.microsoft.com/detail/9N01BBBW2J6D" 
+                                   target="_blank" 
+                                   class="flex-1 bg-blue-600 text-white rounded-lg px-4 py-3 text-center font-medium hover:bg-blue-700 transition-colors">
+                                    <i class="fa fa-windows mr-2"></i>
+                                    <span class="lang-en">Pro Version</span>
+                                    <span class="lang-zh-CN hidden">专业版</span>
+                                    <span class="lang-zh-TW hidden">專業版</span>
+                                    <span class="lang-ja hidden">Pro版</span>
+                                </a>
+                            </div>
+                            <div class="flex justify-center">
+                                <a href="https://apps.apple.com/us/app/sudoku-all-in-one-10k-puzzles/id949183847" 
+                                   target="_blank" 
+                                   class="text-xs text-gray-500 hover:text-primary transition-colors">
+                                    <i class="fa fa-apple mr-1"></i>
+                                    <span class="lang-en">Legacy Free Version</span>
+                                    <span class="lang-zh-CN hidden">旧版免费版</span>
+                                    <span class="lang-zh-TW hidden">舊版免費版</span>
+                                    <span class="lang-ja hidden">旧版無料版</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 应用5: Sudoku Calculator -->
+                <div id="sudoku-calculator" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                    <div class="h-52 bg-primary/10 flex items-center justify-center">
+                        <div class="app-icon-container">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/90/c4/d1/90c4d1f7-0c17-dede-b705-bb0df35d7ac8/Placeholder.mill/400x400bb-75.webp" 
                                  alt="Sudoku Calculator" 
                                  class="w-32 h-32 app-icon">
                         </div>
@@ -801,6 +948,9 @@
                             </span>
                             <span class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
                                 <i class="fa fa-android"></i> Android
+                            </span>
+                            <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa fa-windows"></i> Windows
                             </span>
                         </div>
                         <h4 class="text-xl font-semibold mb-2">
@@ -834,25 +984,73 @@
                             </div>
                         </div>
                         
-                        <div class="flex gap-3">
-                            <a href="https://apps.apple.com/us/app/sudoku-calculator/id965517565" 
-                               target="_blank" 
-                               class="flex-1 bg-white border border-primary text-primary rounded-lg px-4 py-3 text-center font-medium hover:bg-primary hover:text-white transition-colors">
-                                <i class="fa fa-apple mr-2"></i>
-                                <span class="lang-en">Free Version</span>
-                                <span class="lang-zh-CN hidden">免费版</span>
-                                <span class="lang-zh-TW hidden">免費版</span>
-                                <span class="lang-ja hidden">無料版</span>
-                            </a>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex gap-3">
+                                <a href="https://apps.apple.com/us/app/sudoku-calculator/id965517565" 
+                                   target="_blank" 
+                                   class="flex-1 bg-white border border-primary text-primary rounded-lg px-4 py-3 text-center font-medium hover:bg-primary hover:text-white transition-colors">
+                                    <i class="fa fa-apple mr-2"></i>
+                                    <span class="lang-en">Free Version</span>
+                                    <span class="lang-zh-CN hidden">免费版</span>
+                                    <span class="lang-zh-TW hidden">免費版</span>
+                                    <span class="lang-ja hidden">無料版</span>
+                                </a>
+                                <a href="https://apps.apple.com/us/app/sudoku-calculator-pro/id6759789149" 
+                                   target="_blank" 
+                                   class="flex-1 bg-primary text-white rounded-lg px-4 py-3 text-center font-medium hover:bg-primary/90 transition-colors">
+                                    <i class="fa fa-apple mr-2"></i>
+                                    <span class="lang-en">Pro Version</span>
+                                    <span class="lang-zh-CN hidden">专业版</span>
+                                    <span class="lang-zh-TW hidden">專業版</span>
+                                    <span class="lang-ja hidden">Pro版</span>
+                                </a>
+                            </div>
+                            <div class="flex gap-3">
+                                <button disabled 
+                                        class="flex-1 bg-gray-300 border border-gray-400 text-gray-500 rounded-lg px-4 py-3 text-center font-medium cursor-not-allowed opacity-60">
+                                    <i class="fa fa-android mr-2"></i>
+                                    <span class="lang-en">Free Version</span>
+                                    <span class="lang-zh-CN hidden">免费版</span>
+                                    <span class="lang-zh-TW hidden">免費版</span>
+                                    <span class="lang-ja hidden">無料版</span>
+                                </button>
+                                <a href="https://play.google.com/store/apps/details?id=com.zhuyangjun.sudokucalculatorpro" 
+                                   target="_blank" 
+                                   class="flex-1 bg-green-500 text-white rounded-lg px-4 py-3 text-center font-medium hover:bg-green-600 transition-colors">
+                                    <i class="fa fa-android mr-2"></i>
+                                    <span class="lang-en">Pro Version</span>
+                                    <span class="lang-zh-CN hidden">专业版</span>
+                                    <span class="lang-zh-TW hidden">專業版</span>
+                                    <span class="lang-ja hidden">Pro版</span>
+                                </a>
+                            </div>
+                            <div class="flex gap-3">
+                                <button disabled 
+                                        class="flex-1 bg-gray-300 border border-gray-400 text-gray-500 rounded-lg px-4 py-3 text-center font-medium cursor-not-allowed opacity-60">
+                                    <i class="fa fa-windows mr-2"></i>
+                                    <span class="lang-en">Free Version</span>
+                                    <span class="lang-zh-CN hidden">免费版</span>
+                                    <span class="lang-zh-TW hidden">免費版</span>
+                                    <span class="lang-ja hidden">無料版</span>
+                                </button>
+                                <a href="https://apps.microsoft.com/detail/9NKHWLCSMVP0" 
+                                   target="_blank" 
+                                   class="flex-1 bg-blue-600 text-white rounded-lg px-4 py-3 text-center font-medium hover:bg-blue-700 transition-colors">
+                                    <i class="fa fa-windows mr-2"></i>
+                                    <span class="lang-en">Pro Version</span>
+                                    <span class="lang-zh-CN hidden">专业版</span>
+                                    <span class="lang-zh-TW hidden">專業版</span>
+                                    <span class="lang-ja hidden">Pro版</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 应用6: ScanCode -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="scancode" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">6</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/6c/10/576c10f4-7c92-bbb7-efe9-72d0cdac9db2/AppIcon-1x_U007emarketing-0-11-0-0-85-220-0.png/460x0w.webp" 
                                  alt="ScanCode" 
                                  class="w-32 h-32 app-icon">
@@ -1040,7 +1238,7 @@
                 <!-- 评价4 - Sudoku Calculator -->
                 <div class="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
                     <div class="flex items-center mb-4">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/90/c4/d1/90c4d1f7-0c17-dede-b705-bb0df35d7ac8/Placeholder.mill/400x400bb-75.webp" 
                              alt="Sudoku Calculator app icon" 
                              class="w-10 h-10 rounded-lg mr-3">
                         <a href="https://apps.apple.com/us/app/sudoku-calculator/id965517565" target="_blank" class="font-medium text-primary hover:underline">
@@ -1074,7 +1272,7 @@
                 <!-- 评价5 - Sudoku Calculator -->
                 <div class="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
                     <div class="flex items-center mb-4">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/90/c4/d1/90c4d1f7-0c17-dede-b705-bb0df35d7ac8/Placeholder.mill/400x400bb-75.webp" 
                              alt="Sudoku Calculator app icon" 
                              class="w-10 h-10 rounded-lg mr-3">
                         <a href="https://apps.apple.com/us/app/sudoku-calculator/id965517565" target="_blank" class="font-medium text-primary hover:underline">
@@ -1108,7 +1306,7 @@
                 <!-- 评价6 - Sudoku Calculator -->
                 <div class="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
                     <div class="flex items-center mb-4">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/90/c4/d1/90c4d1f7-0c17-dede-b705-bb0df35d7ac8/Placeholder.mill/400x400bb-75.webp" 
                              alt="Sudoku Calculator app icon" 
                              class="w-10 h-10 rounded-lg mr-3">
                         <a href="https://apps.apple.com/us/app/sudoku-calculator/id965517565" target="_blank" class="font-medium text-primary hover:underline">
@@ -1358,10 +1556,9 @@
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="games-container">
                 <!-- 游戏1: Fly To The End: Duck Adventure -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="fly-to-the-end" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">1</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/85/89/9d8589f0-9aaf-f36d-b18c-eb769b55118e/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="Fly To The End icon" 
                                  class="w-32 h-32 app-icon">
@@ -1422,76 +1619,10 @@
                     </div>
                 </div>
 
-                <!-- 游戏2: Sudoku All in One: 10K Puzzles -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
-                    <div class="h-52 bg-primary/10 flex items-center justify-center">
-                        <div class="app-icon-container">
-                            <span class="app-number">2</span>
-                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/38/38/23/38382396-bce7-cc7c-a15f-61f1ddccef48/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
-                                 alt="Sudoku All in One icon" 
-                                 class="w-32 h-32 app-icon">
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <!-- 设备兼容性标签 -->
-                        <div class="flex gap-2 mb-3 flex-wrap">
-                            <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                                <i class="fa fa-mobile"></i> iPhone
-                            </span>
-                            <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                                <i class="fa fa-tablet"></i> iPad
-                            </span>
-                            <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                                <i class="fa fa-eye"></i> Vision Pro
-                            </span>
-                            <span class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                                <i class="fa fa-android"></i> Android
-                            </span>
-                        </div>
-                        <h4 class="text-xl font-semibold mb-2">
-                            <a href="https://apps.apple.com/us/app/sudoku-all-in-one-10k-puzzles/id949183847" target="_blank" class="hover:text-primary transition-colors">
-                                <span class="lang-en">Sudoku All in One: 10K Puzzles</span>
-                                <span class="lang-zh-CN hidden">数独全能版：10K谜题</span>
-                                <span class="lang-zh-TW hidden">數獨全能版：10K謎題</span>
-                                <span class="lang-ja hidden">数独オールインワン：10Kパズル</span>
-                            </a>
-                        </h4>
-                        <p class="text-gray-600 mb-4">
-                            <span class="lang-en">Sudoku All in One: A thrilling word-number game! Over 10,000 Sudoku puzzles to challenge your math and logic skills.<br>Features<br>* Difficulty levels: Kids, Easy, Standard, Hard, Expert, Extreme<br>* Built-in Sudoku calculator for stuck moments<br>* 10,000 online rankings and achievements to unlock<br>* AI-powered number input<br>* Colored numbers for better visibility</span>
-                            <span class="lang-zh-CN hidden">数独全能版：一款激动人心的文字数字游戏！超过10,000个数独谜题挑战您的数学和逻辑技能。<br>功能特色<br>* 难度级别：儿童、简单、标准、困难、专家、极限<br>* 内置数独计算器，解决卡关时刻<br>* 10,000个在线排名和成就待解锁<br>* AI驱动的数字输入<br>* 彩色数字增强可见性</span>
-                            <span class="lang-zh-TW hidden">數獨全能版：一款激動人心的文字數字遊戲！超過10,000個數獨謎題挑戰您的數學和邏輯技能。<br>功能特色<br>* 難度級別：兒童、簡單、標準、困難、專家、極限<br>* 內置數獨計算器，解決卡關時刻<br>* 10,000個在線排名和成就待解鎖<br>* AI驅動的數字輸入<br>* 彩色數字增強可見性</span>
-                            <span class="lang-ja hidden">数独オールインワン：スリリングなワードナンバーゲーム！10,000以上の数独パズルで数学と論理スキルに挑戦。<br>機能特徴<br>* 難易度レベル：子供、簡単、標準、困難、エキスパート、極限<br>* 内蔵数独計算機で行き詰まった時に対応<br>* 10,000のオンラインランキングと実績をアンロック<br>* AI搭載の数字入力<br>* 視認性向上のためのカラー数字</span>
-                        </p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex items-center text-yellow-400">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <span class="text-gray-600 ml-2 text-sm">(4.8)</span>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <a href="https://apps.apple.com/us/app/sudoku-all-in-one-10k-puzzles/id949183847" 
-                               target="_blank" 
-                               class="flex-1 bg-white border border-primary text-primary rounded-lg px-4 py-3 text-center font-medium hover:bg-primary hover:text-white transition-colors">
-                                <i class="fa fa-apple mr-2"></i>
-                                <span class="lang-en">Free Version</span>
-                                <span class="lang-zh-CN hidden">免费版</span>
-                                <span class="lang-zh-TW hidden">免費版</span>
-                                <span class="lang-ja hidden">無料版</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- 游戏3: DayDayUp: 100M Score Challenge -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="daydayup" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">3</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/53/42/9c/53429c3e-dd50-3ce5-402c-e5539b2638d8/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="DayDayUp icon" 
                                  class="w-32 h-32 app-icon">
@@ -1553,10 +1684,9 @@
                 </div>
 
                 <!-- 游戏4: Clear123: 100M Clear Challenge -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="clear123" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">4</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/98/a6/4b98a61d-3631-e98a-c766-9574b3113583/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="Clear123 icon" 
                                  class="w-32 h-32 app-icon">
@@ -1618,10 +1748,9 @@
                 </div>
 
                 <!-- 游戏5: Crazy123: 100M Merge Challenge -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="crazy123" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">5</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/be/31/54/be315476-5592-ee0f-8c1c-f93a812ae3dd/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="Crazy123 icon" 
                                  class="w-32 h-32 app-icon">
@@ -1683,10 +1812,9 @@
                 </div>
 
                 <!-- 游戏6: Line123: Line 100M Challenge -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="line123" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">6</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/9d/f6/809df6fb-3c28-f9c8-a44c-8c5a07264b0c/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="Line123 icon" 
                                  class="w-32 h-32 app-icon">
@@ -1748,10 +1876,9 @@
                 </div>
 
                 <!-- 游戏7: Match123: Merge 100M, Chall LB -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="match123" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">7</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5d/7f/68/5d7f681f-1bda-ab8c-5d5f-a16424a3b23b/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="Match123 icon" 
                                  class="w-32 h-32 app-icon">
@@ -1813,10 +1940,9 @@
                 </div>
 
                 <!-- 游戏8: PopSnake: 100M Merge Thrill -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="popsnake" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">8</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/5e/a5/3d5ea5e4-3fe0-8d0d-f85d-4f2d3891d0db/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="PopSnake icon" 
                                  class="w-32 h-32 app-icon">
@@ -1878,10 +2004,9 @@
                 </div>
 
                 <!-- 游戏9: 爆破123: 100M Merge Challenge -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="popo123" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">9</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/9b/2e/f89b2e6b-cca1-9864-a46f-df068d0d46f5/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="爆破123 icon" 
                                  class="w-32 h-32 app-icon">
@@ -1943,10 +2068,9 @@
                 </div>
 
                 <!-- 游戏10: Remember 3.1415 -->
-                <div class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
+                <div id="remember31415" class="bg-secondary rounded-xl overflow-hidden shadow-md card-hover app-card">
                     <div class="h-52 bg-primary/10 flex items-center justify-center">
                         <div class="app-icon-container">
-                            <span class="app-number">10</span>
                             <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/79/bd/a879bdc5-6e6b-7ac2-50d5-3424d0fb20ee/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                  alt="Remember 3.1415" 
                                  class="w-32 h-32 app-icon">
@@ -2053,7 +2177,7 @@
                     </h4>
                     <ul class="space-y-3">
                         <li>
-                            <a href="https://apps.apple.com/us/app/bookmarkers-pro-smart-manager/id574292030" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#bookmarkers" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7e/53/91/7e539181-797b-05ec-22fa-049d327b132f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/460x0w.webp" 
                                      alt="Bookmarkers Pro icon" 
                                      class="w-6 h-6 rounded">
@@ -2064,18 +2188,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/bookmarkers-smart-manager/id564474256" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
-                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2e/ca/cb/2ecacb73-2754-ed71-129f-339910ea759e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/460x0w.webp" 
-                                     alt="Bookmarkers icon" 
-                                     class="w-6 h-6 rounded">
-                                <span class="lang-en">Bookmarkers</span>
-                                <span class="lang-zh-CN hidden">书签管理</span>
-                                <span class="lang-zh-TW hidden">書籤管理</span>
-                                <span class="lang-ja hidden">ブックマーカー</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://apps.apple.com/us/app/shortcut-manager-pro-app-hub/id591392350" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#shortcut-manager" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/78/6f/7f/786f7fb5-eb0d-d131-ffbf-0d3570b3b044/Placeholder.mill/400x400bb-75.jpg" 
                                      alt="Shortcut Manager Pro icon" 
                                      class="w-6 h-6 rounded">
@@ -2086,18 +2199,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/shortcut-manager-app-hub/id595156397" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
-                                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e2/38/8c/e2388c51-e7cd-566e-cb2a-083c981f8e12/Placeholder.mill/400x400bb-75.jpg" 
-                                     alt="Shortcut Manager icon" 
-                                     class="w-6 h-6 rounded">
-                                <span class="lang-en">Shortcut Manager</span>
-                                <span class="lang-zh-CN hidden">快捷方式管理</span>
-                                <span class="lang-zh-TW hidden">快捷方式管理</span>
-                                <span class="lang-ja hidden">ショートカットマネージャー</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://apps.apple.com/us/app/b2eb-pro-book-to-ebook/id6757775960" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#b2eb-pro" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9e/74/d0/9e74d0fe-144b-e345-3c0f-c6321f924868/Placeholder.mill/400x400bb-75.jpg" 
                                      alt="B2EB Pro icon" 
                                      class="w-6 h-6 rounded">
@@ -2108,18 +2210,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/b2eb-book-to-ebook/id6757756464" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
-                                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9e/74/d0/9e74d0fe-144b-e345-3c0f-c6321f924868/Placeholder.mill/400x400bb-75.jpg" 
-                                     alt="B2EB icon" 
-                                     class="w-6 h-6 rounded">
-                                <span class="lang-en">B2EB - Book to Ebook</span>
-                                <span class="lang-zh-CN hidden">B2EB - 纸质书籍转电子书</span>
-                                <span class="lang-zh-TW hidden">B2EB - 紙質書籍轉電子書</span>
-                                <span class="lang-ja hidden">B2EB - 本を電子書籍に</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://apps.apple.com/us/app/text-search-replace-notes/id1099846720" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#text-search" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/83/1d/27831deb-8962-9286-4881-d6c0fecd1254/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/246x0w.webp" 
                                      alt="Text Search icon" 
                                      class="w-6 h-6 rounded">
@@ -2130,8 +2221,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/sudoku-calculator/id965517565" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
-                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/24/ba/6b/24ba6b8f-57d8-dd94-6fcb-78d8ac67963b/mzl.jlqlthwt.jpg/246x0w.webp" 
+                            <a href="#sudoku-all-in-one" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e7/9c/c7/e79cc743-efa5-4c4c-0de5-ddadd237ef8f/Placeholder.mill/400x400bb-75.jpg" 
+                                     alt="Sudoku All in One icon" 
+                                     class="w-6 h-6 rounded">
+                                <span class="lang-en">Sudoku All in One</span>
+                                <span class="lang-zh-CN hidden">数独全能版</span>
+                                <span class="lang-zh-TW hidden">數獨全能版</span>
+                                <span class="lang-ja hidden">数独オールインワン</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sudoku-calculator" class="flex items-center gap-2 hover:text-primary transition-colors">
+                                <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/90/c4/d1/90c4d1f7-0c17-dede-b705-bb0df35d7ac8/Placeholder.mill/400x400bb-75.webp" 
                                      alt="Sudoku Calculator icon" 
                                      class="w-6 h-6 rounded">
                                 <span class="lang-en">Sudoku Calculator</span>
@@ -2141,7 +2243,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/scancode-create-track-express/id702178487" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#scancode" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/6c/10/576c10f4-7c92-bbb7-efe9-72d0cdac9db2/AppIcon-1x_U007emarketing-0-11-0-0-85-220-0.png/460x0w.webp" 
                                      alt="ScanCode icon" 
                                      class="w-6 h-6 rounded">
@@ -2165,7 +2267,7 @@
                     </h4>
                     <ul class="space-y-3">
                         <li>
-                            <a href="https://apps.apple.com/us/app/fly-to-the-end-duck-adventure/id906388094" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#fly-to-the-end" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/85/89/9d8589f0-9aaf-f36d-b18c-eb769b55118e/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="Fly To The End icon" 
                                      class="w-6 h-6 rounded">
@@ -2176,18 +2278,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/sudoku-all-in-one-10k-puzzles/id949183847" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
-                                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/38/38/23/38382396-bce7-cc7c-a15f-61f1ddccef48/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
-                                     alt="Sudoku All in One icon" 
-                                     class="w-6 h-6 rounded">
-                                <span class="lang-en">Sudoku All in One</span>
-                                <span class="lang-zh-CN hidden">数独全能版</span>
-                                <span class="lang-zh-TW hidden">數獨全能版</span>
-                                <span class="lang-ja hidden">数独オールインワン</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://apps.apple.com/us/app/daydayup-100m-score-challenge/id834366221" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#daydayup" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/53/42/9c/53429c3e-dd50-3ce5-402c-e5539b2638d8/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="DayDayUp icon" 
                                      class="w-6 h-6 rounded">
@@ -2198,7 +2289,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/clear123-100m-clear-challenge/id870062402" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#clear123" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/98/a6/4b98a61d-3631-e98a-c766-9574b3113583/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="Clear123 icon" 
                                      class="w-6 h-6 rounded">
@@ -2209,7 +2300,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/crazy123-100m-merge-challenge/id866995547" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#crazy123" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/be/31/54/be315476-5592-ee0f-8c1c-f93a812ae3dd/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="Crazy123 icon" 
                                      class="w-6 h-6 rounded">
@@ -2220,7 +2311,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/line123-line-100m-challenge/id885829197" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#line123" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/9d/f6/809df6fb-3c28-f9c8-a44c-8c5a07264b0c/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="Line123 icon" 
                                      class="w-6 h-6 rounded">
@@ -2231,7 +2322,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/match123-merge-100m-chall-lb/id887421262" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#match123" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5d/7f/68/5d7f681f-1bda-ab8c-5d5f-a16424a3b23b/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="Match123 icon" 
                                      class="w-6 h-6 rounded">
@@ -2242,7 +2333,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/popsnake-100m-merge-thrill/id893527033" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#popsnake" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/5e/a5/3d5ea5e4-3fe0-8d0d-f85d-4f2d3891d0db/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="PopSnake icon" 
                                      class="w-6 h-6 rounded">
@@ -2253,7 +2344,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/popo123-pop-100m-challenge/id885317017" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#popo123" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/9b/2e/f89b2e6b-cca1-9864-a46f-df068d0d46f5/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="Popo123 icon" 
                                      class="w-6 h-6 rounded">
@@ -2264,7 +2355,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://apps.apple.com/us/app/remember-3-1415/id985688958" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors">
+                            <a href="#remember31415" class="flex items-center gap-2 hover:text-primary transition-colors">
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/79/bd/a879bdc5-6e6b-7ac2-50d5-3424d0fb20ee/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/460x0w.webp" 
                                      alt="Remember 3.1415 icon" 
                                      class="w-6 h-6 rounded">
@@ -2403,6 +2494,53 @@
                     header.classList.remove('py-2');
                     header.classList.remove('shadow');
                 }
+            });
+        });
+
+        // 动态为应用和游戏卡片添加序号
+        document.addEventListener('DOMContentLoaded', function() {
+            function addAppNumbers() {
+                // 应用部分序号
+                const appSection = document.querySelector('#all-applications');
+                if (appSection) {
+                    const appCards = appSection.querySelectorAll('.app-card');
+                    let count = 1;
+                    
+                    appCards.forEach(card => {
+                        const iconContainer = card.querySelector('.app-icon-container');
+                        if (iconContainer && !card.querySelector('.app-number')) {
+                            const numberSpan = document.createElement('span');
+                            numberSpan.className = 'app-number';
+                            numberSpan.textContent = count;
+                            iconContainer.insertBefore(numberSpan, iconContainer.firstChild);
+                            count++;
+                        }
+                    });
+                }
+                
+                // 游戏部分序号
+                const gamesSection = document.querySelector('#games-container');
+                if (gamesSection) {
+                    const gameCards = gamesSection.querySelectorAll('.app-card');
+                    let count = 1;
+                    
+                    gameCards.forEach(card => {
+                        const iconContainer = card.querySelector('.app-icon-container');
+                        if (iconContainer && !card.querySelector('.app-number')) {
+                            const numberSpan = document.createElement('span');
+                            numberSpan.className = 'app-number';
+                            numberSpan.textContent = count;
+                            iconContainer.insertBefore(numberSpan, iconContainer.firstChild);
+                            count++;
+                        }
+                    });
+                }
+            }
+            
+            addAppNumbers();
+            
+            window.addEventListener('resize', function() {
+                addAppNumbers();
             });
         });
     </script>
