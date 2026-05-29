@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+        }
+        body {
+            background: #f5f5f7;
+            padding: 40px 20px;
+        }
+        .content {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .breadcrumb {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        .breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        h1 {
+            font-size: 26px;
+            color: #1d1d1f;
+            margin-bottom: 25px;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 30px 0 12px;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #515154;
+            line-height: 1.7;
+            margin: 8px 0;
+        }
+        .email-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 10px 0;
+        }
+        .email-link {
+            color: #0066cc;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .copy-btn {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .copy-btn:hover {
+            background: #f0f0f0;
+        }
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 35px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+        .footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="breadcrumb">
+            <a href="https://kyo9999.github.io">Home</a> &gt; Support
+        </div>
+
+        <h1>App Support Center</h1>
+        <h2>Troubleshooting</h2>
+        <p>1. Please keep the app updated to the latest version.</p>
+        <p>2. Back up your data regularly to prevent loss.</p>
+        <p>3. Restart the app if it runs abnormally.</p>
+        <p>4. Reinstall the app if issues persist.</p>
+
+        <h2>Contact Support</h2>
+        <p>If you need help, suggestions, or have any ideas, please contact us via email.</p>
+        <div class="email-row">
+            <a href="mailto:283784210@qq.com" class="email-link">283784210@qq.com</a>
+            <button class="copy-btn" onclick="copyEmail()">Copy</button>
+        </div>
+
+        <!-- <div class="divider"></div> -->
+
+        <!-- 新增 Privacy Support 标题 + 横线注释 -->
+        <h2>Privacy Support</h2>
+        <p style="margin-top:6px;">
+            <a href="https://kyo9999.github.io/privacy.html" target="_blank">Privacy Policy</a>
+        </p>
+
+        <div class="footer">
+            <!-- 动态生成 2012-当前年 版权信息 -->
+            <p>© 2012<script>document.write('-' + new Date().getFullYear())</script> All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script>
+        function copyEmail() {
+            navigator.clipboard.writeText('283784210@qq.com').then(() => {
+                alert('Email copied successfully!');
+            });
+        }
+    </script>
+</body>
+</html>
