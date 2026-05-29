@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>App Support</title>
     <style>
         * {
@@ -11,48 +11,55 @@
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
         }
+        /* 关键：固定字体大小，确保窗口变小时字体仍然可读 */
+        html {
+            font-size: 24px; 
+            /* 固定 24px 基准字体，不随窗口缩放，保证可读性 */
+        }
+        /* 移除body的默认内边距，让内容贴窗口 */
         body {
             background: #f5f5f7;
-            padding: 40px 20px;
+            padding: 0; /* 彻底移除默认内边距，解决「白色边框占窗口」 */
         }
+        /* 容器占满整个窗口宽度，仅保留内部内边距 */
         .content {
-            max-width: 700px;
-            margin: 0 auto;
+            width: 100%; /* 强制占满窗口宽度，取消max-width限制 */
+            min-height: 100vh; /* 高度占满视口，避免内容不足时留白 */
             background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 2vw; /* 仅保留内部内边距，可根据需求调整 */
+            border-radius: 0; /* 移除圆角（如果需要圆角可保留，但会有边角留白） */
+            box-shadow: none; /* 移除阴影（阴影会视觉上显「边框」） */
         }
         .breadcrumb {
-            font-size: 14px;
+            font-size: 0.8rem; /* 改用rem适配，比vw更稳定 */
             color: #888;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
         }
         .breadcrumb a {
             color: #0066cc;
             text-decoration: none;
         }
         h1 {
-            font-size: 26px;
+            font-size: 1.6rem;
             color: #1d1d1f;
-            margin-bottom: 25px;
+            margin-bottom: 1.2rem;
         }
         h2 {
-            font-size: 18px;
-            margin: 30px 0 12px;
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.8rem;
             color: #333;
         }
         p {
-            font-size: 16px;
+            font-size: 1rem; /* 基准字体，随根元素缩放 */
             color: #515154;
             line-height: 1.7;
-            margin: 8px 0;
+            margin: 0.5rem 0;
         }
         .email-row {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin: 10px 0;
+            gap: 0.8rem;
+            margin: 0.6rem 0;
         }
         .email-link {
             color: #0066cc;
@@ -60,12 +67,12 @@
             text-decoration: none;
         }
         .copy-btn {
-            padding: 5px 10px;
+            padding: 0.3rem 0.6rem;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 0.4rem;
             background: #fff;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 0.9rem;
         }
         .copy-btn:hover {
             background: #f0f0f0;
@@ -73,16 +80,33 @@
         .divider {
             height: 1px;
             background: #eee;
-            margin: 35px 0;
+            margin: 2rem 0;
         }
         .footer {
-            margin-top: 30px;
-            font-size: 14px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
             color: #888;
         }
         .footer a {
             color: #0066cc;
             text-decoration: none;
+        }
+
+        /* 4K屏适配：字体稍放大，保持比例 */
+        @media screen and (min-width: 3840px) {
+            html {
+                font-size: calc(100vw / 3840 * 24);
+            }
+        }
+
+        /* 移动端/小窗口适配：保持固定字体，仅调整内边距 */
+        @media screen and (max-width: 768px) {
+            html {
+                font-size: 18px; /* 保持固定字体大小，确保可读性 */
+            }
+            .content {
+                padding: 4vw; /* 小窗口增加内部内边距，提升可读性 */
+            }
         }
     </style>
 </head>
@@ -107,16 +131,12 @@
             <button class="copy-btn" onclick="copyEmail()">Copy</button>
         </div>
 
-        <!-- <div class="divider"></div> -->
-
-        <!-- 新增 Privacy Support 标题 + 横线注释 -->
         <h2>Privacy Support</h2>
         <p style="margin-top:6px;">
             <a href="https://kyo9999.github.io/privacy.html" target="_blank">Privacy Policy</a>
         </p>
 
         <div class="footer">
-            <!-- 动态生成 2012-当前年 版权信息 -->
             <p>© 2012<script>document.write('-' + new Date().getFullYear())</script> All Rights Reserved</p>
         </div>
     </div>
